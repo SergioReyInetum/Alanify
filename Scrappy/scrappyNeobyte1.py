@@ -3,15 +3,15 @@ from bs4 import BeautifulSoup
 import json
 import time
 
-# Headers para simular un navegador
+# Headers para simular un navegador (esto ayuda a evitar ser bloqueado por el servidor web)
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'
 }
 
-# URL base
+# URL base del sitio web
 url_base = "https://www.neobyte.es"
 
-# Diccionario de categorías y sus URLs
+# # Diccionario que contiene las categorías de productos y sus URLs respectivas
 categorias = {
     "procesadores": "https://www.neobyte.es/procesadores-107?utm_source=componentes&utm_medium=landing&utm_campaign=Neobyte&order=product.position.asc&resultsPerPage=9999999",
     "placas_base": "https://www.neobyte.es/placas-base-106?utm_source=componentes&utm_medium=landing&utm_campaign=Neobyte&order=product.position.asc&resultsPerPage=9999999",
@@ -26,36 +26,41 @@ categorias = {
 # Limitar la cantidad de productos a extraer por categoría
 #limite_productos = 2  # Puedes ajustar este valor según tus necesidades
 
-# Función para procesar una categoría
+# Función para procesar una categoría específica
+# Esta función extrae información sobre productos desde la página de una categoría
 def procesar_categoria(nombre_categoria, url_categoria):
     print(f"Procesando categoría: {nombre_categoria}")
+    
     respuesta = requests.get(url_categoria, headers=headers)
     if respuesta.status_code != 200:
         print(f"Error al cargar la página de la categoría {nombre_categoria}: {url_categoria}")
         return []
-
+    # Realiza una solicitud GET para obtener el HTML de la página de la categoría
     soup = BeautifulSoup(respuesta.text, "html.parser")
-    productos = []
-    urls_procesadas = set()
+    productos = [] # Lista para almacenar los productos extraídos
+    urls_procesadas = set() # Conjunto para evitar URLs duplicadas
 
     # Encontrar todos los enlaces en el bloque principal de productos
     bloque_principal = soup.find("div", class_="products")
     if not bloque_principal:
         print(f"No se encontró el bloque principal de productos para la categoría {nombre_categoria}.")
         return []
-
+    
+    # Extrae todos los enlaces a productos dentro del bloque
     enlaces_productos = bloque_principal.find_all("a", href=True)
-    contador = 0
+    contador = 0 # Contador para llevar el registro de los productos procesados
 
     for enlace in enlaces_productos:
         #if contador >= limite_productos:
             #break  # Detener después de alcanzar el límite
-
+        
+        # Obtiene el enlace del producto
         href = enlace['href']
         if href.startswith("#") or "neobyte.es#" in href or not href.startswith(("/", "http")):
             # Ignorar enlaces no válidos o que no son productos
             continue
-
+        
+        # Ignora enlaces inválidos o que no corresponden a productos
         if href.startswith("http"):
             url_producto = href
         else:
@@ -67,31 +72,24 @@ def procesar_categoria(nombre_categoria, url_categoria):
             contador += 1
 
             try:
-                # Hacer la petición a la página del producto
+                # Realiza una solicitud GET para obtener el HTML de la página del producto
                 respuesta_detalle = requests.get(url_producto, headers=headers)
                 if respuesta_detalle.status_code == 200:
                     soup_detalle = BeautifulSoup(respuesta_detalle.text, "html.parser")
 
-                    # Extraer nombre
+                    # Extraer nombre del producto
                     titulo_h1 = soup_detalle.find("h1", class_="h1 page-title")
                     if titulo_h1 and titulo_h1.span:
                         nombre_completo = titulo_h1.span.text.strip()
                     else:
-                        nombre_completo = "Nombre no encontrado"
+                        nombre_completo = "NULL"
 
                     # Extraer precio
                     precio_span = soup_detalle.find("span", class_="product-price", content=True)
                     if precio_span:
                         precio = precio_span['content']
                     else:
-                        precio = "Precio no encontrado"
-
-                    # Extraer descripción corta
-                    descripcion_corta = soup_detalle.find("div", class_="rte-content product-description")
-                    if descripcion_corta:
-                        descripcion = descripcion_corta.get_text(strip=True)
-                    else:
-                        descripcion = "Descripción corta no disponible"
+                        precio = "NULL"
 
                     # Extraer características
                     caracteristicas = []
@@ -106,28 +104,26 @@ def procesar_categoria(nombre_categoria, url_categoria):
                                     texto = li.get_text(strip=True)
                                     if texto:
                                         caracteristicas.append(texto)
+                            
                             # Para estructuras tipo <p><ul><li>
-                            p_elements = rte_content.find_all("p")
-                            for p in p_elements:
-                                # Extraer texto de <p> si no tiene <ul> dentro (cabeceras o párrafos sin listas)
-                                if not p.find("ul"):
-                                    texto = p.get_text(strip=True)
-                                    if texto:
-                                        caracteristicas.append(f"**{texto}**")
-                                else:
-                                    ul_in_p = p.find("ul")
-                                    for li in ul_in_p.find_all("li"):
+                            current_title = None  # Variable para almacenar el título actual
+                            for elem in rte_content.children:  # Iterar directamente por los hijos de rte_content
+                                if elem.name == "p" and elem.find("b"):  # Si es un <p> que contiene un <b>
+                                    current_title = elem.get_text(strip=True)  # Obtener el título
+                                elif elem.name == "ul" and current_title:  # Si es una lista <ul> y hay un título definido
+                                    for li in elem.find_all("li"):  # Iterar por los <li> dentro del <ul>
                                         texto = li.get_text(strip=True)
                                         if texto:
-                                            caracteristicas.append(texto)
+                                            caracteristicas.append(f"**{current_title}**: {texto}")
+                                    current_title = None  # Reiniciar el título después de procesar la lista
+
                                 
 
-                    # Añadir datos al producto
+                    # Agrega el producto a la lista
                     productos.append({
                         "nombre": nombre_completo,
                         "precio": precio,
                         "url": url_producto,
-                        "descripcion": descripcion,
                         "caracteristicas": caracteristicas
                     })
 
@@ -143,7 +139,8 @@ def procesar_categoria(nombre_categoria, url_categoria):
 
     return productos
 
-# Procesar todas las categorías
+# Procesa todas las categorías del diccionario
+# Los resultados se almacenarán en un diccionario con el nombre de la categoría como clave
 datos_todos = {}
 
 for categoria, url in categorias.items():
@@ -153,4 +150,4 @@ for categoria, url in categorias.items():
 with open('productos_Neobyte.json', 'w', encoding='utf-8') as file:
     json.dump(datos_todos, file, ensure_ascii=False, indent=4)
 
-print("Los datos de prueba han sido guardados en 'productos_Neobyte.json'")
+print("Los datos de prueba han sido guardados en 'productos__Neobyte.json'")
