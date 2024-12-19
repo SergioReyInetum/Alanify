@@ -1,4 +1,3 @@
-Diseño alto - 44, Gaming - 33, Estudios alto - 32, Fabrica - 31, Diseño bajo - 22, Estudios - 21, Home - 11, Estudios bajo - 10, Home bajo - 00
 text,Categoria
 "Quiero un ordenador para jugar juegos potentes y hacer directo","Gaming"
 "Necesito un PC para tareas básicas de oficina","Home bajo"
@@ -79,220 +78,92 @@ text,Categoria
 "Busco un ordenador para programación con salida HDMI y 16GB de RAM","Estudios bajo"
 "Quiero un ordenador para jugar y editar videos con WiFi y salida HDMI","Diseño bajo"
 "Necesito un PC para diseño gráfico con salida DisplayPort y WiFi","Diseño bajo"
-"Busco un PC para jugar con salida HDMI, WiFi y 16GB de RAM","Estudios"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-asdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasdaasdasda
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"Quiero un ordenador para editar videos con 32GB de RAM y WiFi","Diseño alto"
-"Necesito un equipo para diseño gráfico con salida HDMI y DisplayPort","Diseño alto"
-"Deseo un ordenador para programar con 8GB de RAM y salida HDMI","Estudios bajo"
+"Busco un PC para jugar con salida HDMI, WiFi y 16GB de RAM","Diseño bajo"
+"Quiero un ordenador para editar videos con 32GB de RAM y WiFi","Gaming"
+"Necesito un equipo para diseño gráfico con salida HDMI y DisplayPort","Estudios alto"
+"Deseo un ordenador para programar con 8GB de RAM y salida HDMI","Estudios bajos"
 "Quiero un PC para uso doméstico con WiFi y Bluetooth","Home bajo"
-"Busco un ordenador para jugar con 32GB de RAM y salida DisplayPort","Gaming"
-"Necesito un PC para diseño con WiFi, Bluetooth y 64GB de RAM","Diseño alto"
-"Deseo un equipo para editar videos con salida HDMI, WiFi y Bluetooth","Diseño alto"
+"Busco un ordenador para jugar con 32GB de RAM y salida DisplayPort","Estudios alto"
+"Necesito un PC para diseño con WiFi, Bluetooth y 64GB de RAM","Gaming"
+"Deseo un equipo para editar videos con salida HDMI, WiFi y Bluetooth","Diseño bajo"
 "Quiero un ordenador para clases con WiFi y 16GB de RAM","Estudios bajo"
-"Busco un PC para jugar con salida HDMI, DisplayPort y WiFi","Gaming"
-"Quiero un ordenador para trabajar con salida HDMI y 32GB de RAM","Estudios alto"
+"Busco un PC para jugar con salida HDMI, DisplayPort y WiFi","Diseño bajo"
+"Quiero un ordenador para trabajar con salida HDMI y 32GB de RAM","Diseño bajo"
 "Necesito un equipo para diseño con salida HDMI, WiFi y 16GB de RAM","Diseño bajo"
 "Quiero un ordenador para jugar con 64GB de RAM y WiFi","Gaming"
-"Necesito un PC para diseño gráfico con salida HDMI, WiFi y Bluetooth","Diseño alto"
-"Busco un ordenador para programar con WiFi, 32GB de RAM y salida HDMI","Estudios alto"
+"Necesito un PC para diseño gráfico con salida HDMI, WiFi y Bluetooth","Diseño bajo"
+"Busco un ordenador para programar con WiFi, 32GB de RAM y salida HDMI","Fabrica"
 "Deseo un equipo para ver películas con WiFi y salida DisplayPort","Home bajo"
-"Quiero un PC para clases online con 8GB de RAM y WiFi","Estudios bajo"
-"Necesito un ordenador para trabajar con salida HDMI, DisplayPort y WiFi","Estudios alto"
-"Busco un PC para editar fotos con WiFi, 16GB de RAM y salida HDMI","Estudios alto"
+"Quiero un PC para clases online con 8GB de RAM y WiFi","Home bajo"
+"Necesito un ordenador para trabajar con salida HDMI, DisplayPort y WiFi","Home"
+"Busco un PC para editar fotos con WiFi, 16GB de RAM y salida HDMI","Estudios"
 "Deseo un ordenador para jugar con salida HDMI, DisplayPort y 32GB de RAM","Gaming"
-"Quiero un equipo para editar videos con WiFi, Bluetooth y salida HDMI","Diseño alto"
+"Quiero un equipo para editar videos con WiFi, Bluetooth y salida HDMI","Estudios"
 "Busco un ordenador para uso diario con WiFi, HDMI y 8GB de RAM","Home bajo"
 "Quiero un PC para diseño 3D con WiFi, 64GB de RAM y salida DisplayPort","Diseño alto"
-"Necesito un equipo para programar con salida HDMI, WiFi y 16GB de RAM","Estudios alto"
+"Necesito un equipo para programar con salida HDMI, WiFi y 16GB de RAM","Home"
 "Busco un ordenador para jugar con salida HDMI, WiFi, Bluetooth y 32GB de RAM","Gaming"
+"Busco un ordenador para jugar con salida HDMI, WiFi, Bluetooth y 16 de RAM","Diseño bajo"
 "Quiero un PC para editar videos con WiFi, 64GB de RAM y salida HDMI","Diseño alto"
-"Necesito un equipo para diseño gráfico con salida DisplayPort, WiFi y 32GB de RAM","Diseño alto"
-"Deseo un ordenador para programar con 16GB de RAM, WiFi y salida HDMI","Estudios alto"
+"Quiero un PC para editar videos con WiFi, 8GB de RAM y salida HDMI","Estudios bajo"
+"Necesito un equipo para diseño gráfico con salida DisplayPort, WiFi y 32GB de RAM","Gaming"
+"Deseo un ordenador para programar con 16GB de RAM, WiFi y salida HDMI","Estudios"
 "Quiero un ordenador para ver películas con WiFi, Bluetooth y salida HDMI","Home bajo"
-"Busco un PC para jugar con 8GB de RAM, salida HDMI y WiFi","Gaming"
-"Necesito un ordenador para trabajar con salida HDMI, WiFi y 16GB de RAM","Estudios alto"
-"Deseo un equipo para diseño con salida DisplayPort, WiFi, Bluetooth y 32GB de RAM","Diseño alto"
-"Busco un ordenador para jugar con 32GB de RAM, WiFi, 1TB de espacio en SSD y salida HDMI","Gaming"
-"Quiero un PC para editar videos con WiFi, salida HDMI, Bluetooth, 64GB de RAM y 2TB en NVME","Diseño alto",
-"Necesito un equipo para diseño gráfico con 32GB de RAM, WiFi, salida DisplayPort y 512GB en SSD","Diseño alto",
-"Deseo un ordenador para programar con 16GB de RAM, WiFi, 256GB en SSD y salida HDMI","Estudios alto",
-"Quiero un ordenador para uso doméstico con WiFi, salida HDMI, 1TB en HDD y 8GB de RAM","Home bajo",
-"Busco un PC para jugar con 8GB de RAM, salida HDMI, WiFi y 500GB en SSD","Gaming",
-"Necesito un ordenador para trabajar con salida HDMI, WiFi, 16GB de RAM y 1TB en NVME","Estudios alto",
-"Deseo un equipo para diseño con salida DisplayPort, WiFi, Bluetooth, 32GB de RAM y 2TB en SSD","Diseño alto",
-"Quiero un ordenador para jugar con 64GB de RAM, WiFi, Bluetooth, salida HDMI y 2TB en NVME","Gaming",
-"Necesito un PC para diseño gráfico con salida HDMI, DisplayPort, WiFi, 64GB de RAM y 4TB en SSD","Diseño alto",
-"Busco un ordenador para programar con 32GB de RAM, WiFi, salida HDMI y 1TB en SSD","Estudios alto"
-"Deseo un equipo para ver películas con WiFi, salida HDMI, 500GB en HDD y 8GB de RAM","Home bajo",
-"Quiero un PC para clases online con WiFi, 16GB de RAM, 256GB en SSD y salida HDMI","Estudios bajo",
-"Necesito un ordenador para trabajar con salida DisplayPort, WiFi, 32GB de RAM y 512GB en NVME","Estudios alto",
-"Busco un PC para diseño 3D con WiFi, salida HDMI, 64GB de RAM y 2TB en SSD","Diseño alto",
-"Deseo un ordenador para editar videos con WiFi, Bluetooth, salida HDMI, 32GB de RAM y 1TB en NVME","Diseño alto",
-"Quiero un ordenador para jugar en línea","Gaming"
-"Necesito un PC para editar fotos","Estudios alto"
-"Busco un ordenador para diseño 3D","Diseño alto"
-"Deseo un equipo para programar","Estudios alto"
+"Busco un PC para jugar con 8GB de RAM, salida HDMI y WiFi","Home"
+"Necesito un ordenador para trabajar con salida HDMI, WiFi y 16GB de RAM","Home"
+"Deseo un equipo para diseño con salida DisplayPort, WiFi, Bluetooth y 8GB de RAM","Home"
+"Busco un ordenador para jugar con WiFi, 1TB de espacio en SSD y salida HDMI","Estudios alto"
+"Quiero un PC para editar videos con salida HDMI, Bluetooth, 64GB de RAM y 2TB en NVME","Estudios alto"
+"Necesito un equipo para diseño gráfico con salida DisplayPort y 512GB en SSD","Estudios"
+"Deseo un ordenador para programar","Home"
+"Quiero un ordenador para uso doméstico con WiFi, salida HDMI, 1TB en HDD y 8GB de RAM","Home bajo"
+"Busco un PC para jugar con 8GB de RAM, salida HDMI, WiFi y 500GB en SSD","Home"
+"Necesito un ordenador para trabajar con salida HDMI, WiFi, 16GB de RAM y 1TB en NVME","Home,
+"Deseo un equipo para diseño con salida DisplayPort, WiFi, Bluetooth, 32GB de RAM y 2TB en SSD","Estudios alto"
+"Quiero un ordenador para jugar con 64GB de RAM, WiFi, Bluetooth, salida HDMI y 2TB en NVME","Gaming"
+"Necesito un PC para diseño gráfico con salida HDMI, DisplayPort, WiFi, 64GB de RAM y 4TB en SSD","Gaming"
+"Busco un ordenador para programar con 32GB de RAM, WiFi, salida HDMI y 1TB en SSD","Fabrica"
+"Deseo un equipo para ver películas con WiFi, salida HDMI, 500GB en HDD y 8GB de RAM","Home bajo"
+"Quiero un PC para clases online con WiFi, 16GB de RAM, 256GB en SSD y salida HDMI","Estudios bajo"
+"Necesito un ordenador para trabajar con salida DisplayPort, WiFi, 16GB de RAM y 512GB en NVME","Estudios"
+"Busco un PC para diseño 3D con WiFi, salida HDMI, 64GB de RAM y 2TB en SSD","Diseño alto"
+"Deseo un ordenador para editar videos con WiFi, Bluetooth, salida HDMI, 32GB de RAM y 1TB en NVME","Estudios alto"
+"Quiero un ordenador para jugar en línea","Home"
+"Necesito un PC para editar fotos","Estudios"
+"Busco un ordenador para diseño 3D","Diseño bajo"
+"Deseo un equipo para programar","Home"
 "Quiero un ordenador para ver películas","Home bajo"
 "Necesito un PC para estudiar","Estudios bajo"
 "Busco un ordenador para jugar juegos ligeros","Home"
 "Deseo un equipo para editar videos caseros","Home bajo"
 "Quiero un ordenador para tareas básicas","Home bajo"
-"Busco un PC para uso en casa","Home"
+"Busco un PC para uso en casa","Home bajo"
 "Quiero un ordenador para jugar juegos casuales","Home"
-"Necesito un PC para programar aplicaciones","Estudios alto"
+"Necesito un PC para programar aplicaciones","Home"
 "Busco un ordenador para diseño de interiores","Diseño alto"
 "Deseo un equipo para editar música","Estudios"
 "Quiero un ordenador para navegar por internet","Home bajo"
 "Necesito un PC para clases de matemáticas","Estudios bajo"
-"Busco un ordenador para jugar juegos de estrategia","Gaming"
-"Deseo un equipo para editar videos de YouTube","Diseño alto"
-"Quiero un ordenador para escribir documentos","Home bajo"
-"Necesito un PC para tareas escolares","Estudios bajo"
-"Quiero un ordenador para jugar juegos de simulación","Gaming"
-"Necesito un PC para diseñar modelos en 3D","Diseño alto"
-"Busco un ordenador para estudiar programación","Estudios bajo"
-"Deseo un equipo para editar fotos profesionalmente","Estudios alto"
-"Quiero un ordenador para ver series","Home bajo"
-"Necesito un PC para tareas administrativas","Home bajo"
-"Busco un ordenador para jugar juegos de aventura","Gaming"
-"Deseo un equipo para crear presentaciones","Estudios bajo"
-"Quiero un ordenador para uso personal","Home"
-"Necesito un PC para trabajar en casa","Home bajo"
-"Quiero un ordenador para jugar juegos de deportes","Gaming"
-"Necesito un PC para aprender a programar en Python","Estudios bajo"
-"Busco un ordenador para diseño de productos","Diseño alto"
-"Deseo un equipo para editar videos de boda","Diseño alto"
-"Quiero un ordenador para ver tutoriales","Home bajo"
-"Necesito un PC para hacer gráficos para mi empresa","Estudios alto"
-"Busco un ordenador para jugar juegos de carreras","Gaming"
-"Deseo un equipo para editar podcasts","Estudios"
-"Quiero un ordenador para uso general","Home bajo"
-"Necesito un PC para clases online","Estudios bajo"
-"Quiero un ordenador para jugar juegos de mesa digitales","Gaming"
-"Necesito un PC para aprender diseño web","Estudios bajo"
-"Busco un ordenador para diseñar joyas","Diseño alto"
-"Deseo un equipo para editar videos de viaje","Diseño alto"
-"Quiero un ordenador para ver documentales","Home bajo"
-"Necesito un PC para hacer análisis de datos","Estudios alto"
-"Busco un ordenador para jugar juegos de terror","Gaming"
-"Deseo un equipo para editar videos de cocina","Diseño bajo"
+"Deseo un equipo para editar videos de cocina","Home"
 "Quiero un ordenador para leer libros digitales","Home bajo"
 "Necesito un PC para estudiar historia","Estudios bajo"
-"Busco un ordenador para jugar juegos de supervivencia","Gaming"
-"Deseo un equipo para editar videos de deporte","Diseño alto"
+"Busco un ordenador para jugar juegos de supervivencia","Diseño bajo"
+"Deseo un equipo para editar videos de deporte","Diseño bajo"
 "Quiero un ordenador para escuchar música","Home bajo"
 "Necesito un PC para estudiar idiomas","Estudios bajo"
 "Busco un ordenador para jugar juegos de puzzle","Home"
-"Deseo un equipo para editar videos de mascotas","Diseño bajo"
+"Deseo un equipo para editar videos de mascotas","Home"
 "Quiero un ordenador para ver anime","Home bajo"
 "Necesito un PC para estudiar ciencias","Estudios bajo"
 "Busco un ordenador para jugar juegos educativos","Home"
-"Deseo un equipo para editar videos de eventos","Diseño alto"
+"Deseo un equipo para editar videos de eventos","Gaming"
 "Quiero un ordenador para jugar juegos de acción con gráficos avanzados","Gaming"
 "Necesito un PC para editar videos 4K con salida HDMI","Diseño alto"
 "Busco un ordenador para diseño 3D con 32GB de RAM","Diseño alto"
-"Deseo un equipo para programar en Java con 16GB de RAM y WiFi","Estudios alto"
+"Deseo un equipo para programar en Java con 16GB de RAM y WiFi","Estudios"
 "Quiero un ordenador para ver películas en Blu-ray con salida HDMI","Home bajo"
-"Necesito un PC para estudiar ingeniería con 8GB de RAM y salida DisplayPort","Estudios alto",
-"Busco un ordenador para jugar juegos de estrategia con WiFi y Bluetooth","Gaming"
-"Deseo un equipo para editar fotos con 64GB de RAM y WiFi","Estudios alto"
-"Quiero un ordenador para uso general con salida HDMI y 8GB de RAM","Home bajo"
-"Necesito un PC para clases online con WiFi y 16GB de RAM","Estudios bajo"
-"Busco un ordenador para diseño gráfico con salida HDMI y DisplayPort","Diseño alto"
-"Deseo un equipo para jugar juegos de rol con salida HDMI y WiFi","Gaming"
-"Quiero un ordenador para editar videos de YouTube con WiFi y 32GB de RAM","Diseño alto"
-"Necesito un PC para trabajar en diseño web con salida HDMI y 16GB de RAM","Estudios alto"
-"Quiero un ordenador para jugar juegos de acción con gráficos avanzados","Gaming"
-"Necesito un PC para editar videos en 4K con múltiples monitores","Diseño alto"
-"Busco un ordenador para diseño 3D con alta capacidad de renderizado","Diseño alto"
-"Deseo un equipo para programar en lenguajes de alto rendimiento","Estudios alto"
-"Quiero un ordenador para ver películas en alta definición y jugar ocasionalmente","Home"
-"Necesito un PC para estudiar ingeniería con capacidad para multitarea","Estudios alto"
-"Busco un ordenador para jugar juegos de estrategia con iluminación RGB","Gaming"
-"Deseo un equipo para editar fotos profesionalmente con gran capacidad de almacenamiento","Estudios alto"
-"Quiero un ordenador para uso general con conexión inalámbrica y buen almacenamiento","Home bajo"
-"Necesito un PC para clases online con conectividad completa y suficiente rendimiento","Estudios bajo"
+"Necesito un PC para estudiar ingeniería con 8GB de RAM y salida DisplayPort","Estudios"
+"Necesito un servidor para controlar los usuarios de mi empresa","Home"
+"Necesito un servidor para hacer miles de calculos","Fabrica"
+"Necesito un servidor para el minecraft","Home bajo"
+"Necesito un ordenador para las oficinas de mi empresa","Estudios"

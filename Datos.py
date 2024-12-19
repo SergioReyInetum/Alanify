@@ -24,14 +24,14 @@ if __name__ == "__main__":
         "Necesito un PC para estudiar ingeniería.",
         "Solo quiero un ordenador para ver videos y navegar en casa.",
         "Busco una computadora para diseñar objetos 3D.",
-        "Quiero un ordenador de oficina",
         "Quiero un ordenador para jugar Counter-Strike",
         "Quiero un ordenador para estar en casa y hacer algun programita en el cual también pueda jugar a juegos casuales",
         "Ordenador para hacer videos",
         "Quiero un ordenador par ajugar al solitario y la Candy Crash",
         "Quiero un ordenador para jugar fortnite, ver videos y hablar con amigos por discord",
         "Quiero jugar al vrchat",
-        "Quiero un ordenador para el niño"
+        "Quiero un ordenador para el niño",
+        "Quiero un ordenador para oficina barato"
     ]
 
     # Clasificar cada frase
