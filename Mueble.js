@@ -11,10 +11,10 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
     // Verifica si el campo "procesadores" es un array
     if (Array.isArray(data.procesadores)) {
       // Crear todas las variables necesarias
-      let Nombre = "";
-      let Fabricante = "";
-      let Socket = "";
-
+      var Nombre = "";
+      var Fabricante = "";
+      var Socket = "";
+      var Gen = "";
 
       // Extraer los datos de los procesadores
       const procesadores = data.procesadores.map(procesador => ({
@@ -25,14 +25,20 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
       }));
 
       // Imprimir los nombres y fabricantes de los procesadores en consola
+      Nombre = "NULL";
+      Fabricante = "NULL";
       procesadores.forEach((procesador, index) => {
-        Nombre = procesador.caracteristicas[0]
+        if(procesador.caracteristicas[0].includes("Intel")||procesador.caracteristicas[0].includes("AMD")||procesador.caracteristicas[0].includes("Ryzen")){
+          Nombre = procesador.caracteristicas[0]
+        } else{
+          Nombre = procesador.nombre;
+        }
+
         // Mirar de forma ordenada si el procesador es Intel, AMD u Otro
         Fabricante = "";
         if (procesador.nombre.split(/\s+/).includes("Intel")) {
           Fabricante = "Intel";
-      }
-      
+        }
         else if (procesador.nombre.split(/\s+/).includes("AMD") || procesador.nombre.split(/\s+/).includes("Ryzen")) {
           Fabricante = "AMD";
         }
@@ -46,16 +52,56 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         }
 
         // Mirar el socket del procesador
+        Socket = "NULL";
         for (let i = 0; i < procesador.caracteristicas.length; i++) {
           if (procesador.caracteristicas[i].includes("Socket") && !procesador.caracteristicas[i].includes("**Características**")) {
               Socket = procesador.caracteristicas[i].replace(new RegExp(`\\b${"Socket"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
               break;
           }
         }
+
+        // Mirar la generación de los procesadores
+        Gen = "NULL";
+
+        // Mirar el chat de ChatGPT
+        // https://chatgpt.com/share/67694f35-19c4-8004-804a-938221f53031
+
+        if(Fabricante == "AMD"){
+          for (let i = 0; i < Nombre.length; i++) {
+            if(Nombre[i] == " " && !isNaN(Nombre[i-1])){
+              switch (Nombre[i+1]) {
+                case "1":
+                  Gen = "Zen";
+                  break;
+                case "2":
+                  Gen = "Zen+";
+                  break;
+                case "3":
+                  Gen = "Zen 2";
+                  break;
+                case "5":
+                  Gen = "Zen 3";
+                  break;
+                case "7":
+                  Gen = "Zen 4";
+                  break;  
+                case "8":
+                  Gen = "Zen 5";
+                  break;                    
+                default:
+                  Gen = "NULL";
+                  break;
+            }
+              break;
+            }
+            
+          }
+        }
         
         console.log(Fabricante);
         console.log(Nombre);
         console.log(Socket);
+        console.log(Gen);
         console.log();
       });
 
