@@ -15,6 +15,7 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
       var Fabricante = "";
       var Socket = "";
       var Gen = "";
+      var Nomenclatura = "";
 
       // Extraer los datos de los procesadores
       const procesadores = data.procesadores.map(procesador => ({
@@ -63,10 +64,39 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         // Mirar la generación de los procesadores
         Gen = "NULL";
 
-        // Mirar el chat de ChatGPT
-        // https://chatgpt.com/share/67694f35-19c4-8004-804a-938221f53031
+        // Intel Celeron
+        var Nomenclatura = "";
+        if(Fabricante == "Intel"){
+          if(Nombre.includes("Core")){
+            for (let i = 11; i < Nombre.length; i++) {
+              Nomenclatura = Nomenclatura + Nombre[i];
+              
+            }
+          }
+          else if(Nombre.includes("Pentium")){
+            for (let i = 14; i < Nombre.length; i++) {
+              Nomenclatura = Nomenclatura + Nombre[i];
+              
+            }
+          }
+          else if(Nombre.includes("Celeron")){
+            for (let i = 14; i < Nombre.length; i++) {
+              Nomenclatura = Nomenclatura + Nombre[i];
+              
+            }
+          }
+          else if(Nombre.includes("Xeon")){
+            for (let i = 11; i < Nombre.length; i++) {
+              Nomenclatura = Nomenclatura + Nombre[i];
+              
+            }
+          }
+          else{
+            Nomenclatura = "NULL";
+          }
+        }
 
-        if(Fabricante == "AMD"){
+        else if(Fabricante == "AMD"){
           for (let i = 0; i < Nombre.length; i++) {
             if(Nombre[i] == " " && !isNaN(Nombre[i-1])){
               switch (Nombre[i+1]) {
@@ -98,10 +128,11 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           }
         }
         
-        console.log(Fabricante);
-        console.log(Nombre);
-        console.log(Socket);
-        console.log(Gen);
+        console.log("Fabricante: " + Fabricante);
+        console.log("Nombre: " + Nombre);
+        console.log("Nomenclatura: " + Nomenclatura);
+        console.log("Socket: " + Socket);
+        console.log("Gen: " + Gen);
         console.log();
       });
 
