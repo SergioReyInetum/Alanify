@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { exit } = require('process');
 
 fs.readFile('./data.json', 'utf8', (err, jsonString) => {
   if (err) {
@@ -26,8 +27,8 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
       }));
 
       // Imprimir los nombres y fabricantes de los procesadores en consola
-      Nombre = "NULL";
-      Fabricante = "NULL";
+      Nombre = "Null";
+      Fabricante = "Null";
       procesadores.forEach((procesador, index) => {
         if(procesador.caracteristicas[0].includes("Intel")||procesador.caracteristicas[0].includes("AMD")||procesador.caracteristicas[0].includes("Ryzen")){
           Nombre = procesador.caracteristicas[0]
@@ -53,7 +54,7 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         }
 
         // Mirar el socket del procesador
-        Socket = "NULL";
+        Socket = "Null";
         for (let i = 0; i < procesador.caracteristicas.length; i++) {
           if (procesador.caracteristicas[i].includes("Socket") && !procesador.caracteristicas[i].includes("**Características**")) {
               Socket = procesador.caracteristicas[i].replace(new RegExp(`\\b${"Socket"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
@@ -62,37 +63,34 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         }
 
         // Mirar la generación de los procesadores
-        Gen = "NULL";
+        Gen = "Null";
 
         // Intel Celeron
         var Nomenclatura = "";
         if(Fabricante == "Intel"){
-          if(Nombre.includes("Core")){
-            for (let i = 11; i < Nombre.length; i++) {
-              Nomenclatura = Nomenclatura + Nombre[i];
-              
-            }
+          let listaCategoria = ["Core","Pentium","Celeron","Xeon"];
+          let num;
+          if(Nombre.includes(" " + listaCategoria[0] + " ")){
+            num = 0;
           }
-          else if(Nombre.includes("Pentium")){
-            for (let i = 14; i < Nombre.length; i++) {
-              Nomenclatura = Nomenclatura + Nombre[i];
-              
-            }
+          else if(Nombre.includes(" " + listaCategoria[1] + " ")){
+            num = 1;
           }
-          else if(Nombre.includes("Celeron")){
-            for (let i = 14; i < Nombre.length; i++) {
-              Nomenclatura = Nomenclatura + Nombre[i];
-              
-            }
+          else if(Nombre.includes(" " + listaCategoria[2] + " ")){
+            num = 2;
           }
-          else if(Nombre.includes("Xeon")){
-            for (let i = 11; i < Nombre.length; i++) {
-              Nomenclatura = Nomenclatura + Nombre[i];
-              
-            }
+          else if(Nombre.includes(" " + listaCategoria[3] + " ")){
+            num = 3;
           }
           else{
-            Nomenclatura = "NULL";
+            num = 4;
+            Nomenclatura = "Null";
+            exit;
+          }
+          if(num!=4){
+            for (let a = (6 + listaCategoria[num].length + 1); a < Nombre.length; a++) {
+            Nomenclatura = Nomenclatura + Nombre[a];
+            }
           }
         }
 
@@ -119,7 +117,7 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
                   Gen = "Zen 5";
                   break;                    
                 default:
-                  Gen = "NULL";
+                  Gen = "Null";
                   break;
             }
               break;

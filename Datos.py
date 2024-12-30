@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 
 # Nombre del modelo en Hugging Face
-modelo_nombre = "SergioInetum/autotrain-zogdm-5tsc6"
+modelo_nombre = "SergioInetum/autotrain-advanced"
 
 def cargar_modelo():
     print("Cargando el modelo y el tokenizador desde Hugging Face...")
