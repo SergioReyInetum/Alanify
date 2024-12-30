@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/images/fondoWeb_alanify.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el header */
+    padding: 10px;
+    text-align: center;
+}
+
+.header .logo {
+    width: 100px;
+    vertical-align: middle;
+}
+
+.header input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.nav {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el nav */
+    text-align: center;
+    padding: 10px;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.content {
+    display: flex;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.computer-image {
+    flex: 1;
+    text-align: center;
+}
+
+.computer-image .computer-image-src {
+    width: 80%;
+    border-radius: 10px; /* Opcional, para redondear las esquinas de la imagen */
+}
+
+.component-list {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para la lista de componentes */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
