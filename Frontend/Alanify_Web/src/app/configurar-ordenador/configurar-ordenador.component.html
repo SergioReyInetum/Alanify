@@ -1,58 +1,137 @@
-<div class="header">
-    <input type="text" placeholder="Describe tu ordenador ideal!">
-    <img src="assets/images/logo_Alanify1-removebg-preview.png" alt="AlaniFy Logo" class="logo">
-</div>
-
-<div class="nav">
-    <a href="#">Información</a>
-    <a href="#">Configurar ordenador</a>
-    <a href="#">Perfil Usuario</a>
-</div>
-
-<div class="content">
-    <div class="computer-image">
-        <img src="assets/images/caja2.jpg" alt="Computer Image" class="computer-image-src">
-    </div>
-    <div class="component-list">
-        <h2>Lista componentes</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlaniFy - Configurador de PC</title>
+    
+</head>
+<body>
+    <div class="nav" role="navigation">
         <ul>
-            <li>
-                <span>Socket</span>
-                <span>Precio: 150 €</span>
-            </li>
-            <li>
-                <span>Procesador</span>
-                <span>Precio: 150 €</span>
-            </li>
-            <li>
-                <span>Placa base</span>
-                <span>Precio: 100 €</span>
-            </li>
-            <li>
-                <span>Memoria ram</span>
-                <span>Precio: 70 €</span>
-            </li>
-            <li>
-                <span>Tarjeta gráfica</span>
-                <span>Precio: 350 €</span>
-            </li>
-            <li>
-                <span>Disco duro</span>
-                <span>Precio: 60 €</span>
-            </li>
-            <li>
-                <span>Disco duro adicional</span>
-                <span>Precio: 40 €</span>
-            </li>
-            <li>
-                <span>Refrigeración cpu</span>
-                <span>Precio: 30 €</span>
-            </li>
-            <li>
-                <span>Fuente de alimentación</span>
-                <span>Precio: 60 €</span>
-            </li>
-            <li>
+            <li><a href="#">
+                <img src="assets/images/informacion_icono.png" alt="Información Icono">
+                Información
+            </a></li>
+            <li><a href="#">
+                <img src="assets/images/pc_icono.png" alt="Configurar Icono">
+                Configurar ordenador
+            </a></li>
+            <li><a href="#">
+                <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
+                Perfil Usuario
+            </a></li>
         </ul>
     </div>
-</div>
+
+    <div class="header">
+        <div class="input-container">
+            <input type="text" placeholder="Describe tu ordenador ideal!" id="textInput">
+            <img src="assets/images/borrar_icono.png" alt="Borrar texto" class="borrar_icono" onclick="clearText()">
+        </div>
+        <img src="assets/images/enviar_icono.png" alt="Enviar" class="enviar_icono">
+    </div>
+    <div class="logo-container">
+        <img src="assets/images/logo_Alanify1-removebg-preview.png" alt="AlaniFy Logo" class="logo">
+    </div>
+
+    <div class="content">
+        <div class="computer-image">
+            <img src="assets/images/caja2.jpg" alt="Computer Image" class="computer-image-src">
+        </div>
+        <div class="component-list">
+            <!-- Encabezado de la lista de componentes -->
+            <div class="component-header">
+                <div class="component-title">
+                    <img src="assets/images/list_icon.png" alt="Lista Icono" class="icon">
+                    <h2>Lista componentes</h2>
+                </div>
+                <div class="component-icons">
+                    <img src="assets/images/campana_icon.png" alt="Notificaciones Icono" class="icon">
+                    <img src="assets/images/config_icon.png" alt="Ajustes Icono" class="icon">
+                </div>
+            </div>
+            
+            <!-- Lista de componentes -->
+            <div class="components-section">
+                <div class="component-row">
+                    <div class="component">Socket</div>
+                    <div class="price">150 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Procesador</div>
+                    <div class="price">150 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Placa base</div>
+                    <div class="price">100 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Memoria ram</div>
+                    <div class="price">70 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Tarjeta gráfica</div>
+                    <div class="price">350 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Disco duro</div>
+                    <div class="price">60 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Disco duro adicional</div>
+                    <div class="price">40 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Refrigeración cpu</div>
+                    <div class="price">30 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+                <div class="component-row">
+                    <div class="component">Fuente de alimentación</div>
+                    <div class="price">60 €</div>
+                    <div class="edit-price">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Precio total y botón de continuar -->
+            <div class="total-price-section">
+                <div class="total-price">Precio total: 1080 €</div>
+                <button class="continue-button">Continuar hacia la compra</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function clearText() {
+            document.getElementById("textInput").value = "";
+        }
+    </script>
+</body>
+</html>
