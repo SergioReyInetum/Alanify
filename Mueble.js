@@ -62,18 +62,15 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           }
         }
 
-        // Mirar la generación de los procesadores
-        Gen = "Null";
-
-        // Intel Celeron
-        var Nomenclatura = "";
+        // Mirar la nomenclatura de los procesadores
+        Nomenclatura = "";
         if(Fabricante == "Intel"){
           let listaCategoria = ["Core","Pentium","Celeron","Xeon"];
           let num;
           if(Nombre.includes(" " + listaCategoria[0] + " ")){
             num = 0;
           }
-          else if(Nombre.includes(" " + listaCategoria[1] + " ")){
+          else if(Nombre.includes(" " + listaCategoria[1] + " ")){ 
             num = 1;
           }
           else if(Nombre.includes(" " + listaCategoria[2] + " ")){
@@ -94,7 +91,24 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           }
         }
 
-        else if(Fabricante == "AMD"){
+        else if(Fabricante == "AMD" && Nombre.includes("Ryzen")){
+          for (let a = 10; a < Nombre.length; a++) {
+            if(Nombre[a] != "-"){
+              Nomenclatura = Nomenclatura + Nombre[a];
+            }
+            else{
+              break;
+            }
+          }
+        }
+
+        else{
+          Nomenclatura = "Null";
+        }
+
+        // Mirar la generación de los procesadores
+        Gen = "Null";
+        if(Fabricante == "AMD"){
           for (let i = 0; i < Nombre.length; i++) {
             if(Nombre[i] == " " && !isNaN(Nombre[i-1])){
               switch (Nombre[i+1]) {
