@@ -6,17 +6,22 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+    overflow-x: hidden; /* Evita desplazamiento lateral no deseado */
+    
 }
 
 .header {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color:transparent; /* Hacemos el header transparente para que se vea el fondo */
     padding: 10px;
     text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 100px;
+    position: relative; /* Para que los elementos dentro se posicionen respecto a él */
+    
 
     input[type="text"] {
         width: 50%;
@@ -73,7 +78,7 @@ body {
 
 .logo-container {
     text-align: center;
-    margin-top: -20px; /* Ajusta este valor para mover el logo hacia arriba o abajo si es necesario */
+    margin-top: -1px; /* Ajusta este valor para mover el logo hacia arriba o abajo si es necesario */
     margin-bottom: 20px; /* Espacio entre el logo y el contenido */
 }
 
@@ -81,17 +86,29 @@ body {
     width: 100px; /* Ajusta el tamaño según necesites */
 }
 
-.nav {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto 20px;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.separator {
+  margin: 10px auto; /* Espacio alrededor del separador */
+  width: 80%; /* Ancho del separador */
+  height: 10px; /* Grosor del separador */
+  background-color: #ccc; /* Color del separador */
+  border-radius: 1px; /* Bordes ligeramente redondeados */
+}
 
+.nav {
+  position: fixed; /* Fija la navegación en la pantalla */
+  top: 20px; /* Desplázala hacia abajo desde la parte superior */
+  left: 50%; /* Centra la navegación horizontalmente */
+  transform: translateX(-50%); /* Asegura que esté perfectamente centrada */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  padding: 15px;
+  border-radius: 15px; /* Bordes redondeados para el efecto de "isla" */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para elevar la "isla" */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+    
     ul {
         list-style-type: none;
         padding: 0;
@@ -126,6 +143,7 @@ body {
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
+    gap: 20px; /* Espaciado entre las dos secciones */
   
     .computer-image {
       flex: 1;
