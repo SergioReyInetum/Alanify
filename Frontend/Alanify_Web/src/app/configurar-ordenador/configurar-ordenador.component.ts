@@ -106,7 +106,7 @@ export class ConfigurarOrdenadorComponent {
     // Por ejemplo:
     // this.router.navigate([`/${tab}`]);
   }
-  
+
 
   // Propiedad para controlar el desplazamiento horizontal
   margenIzquierda = 0;
@@ -119,6 +119,13 @@ export class ConfigurarOrdenadorComponent {
   // Función para mover la imagen y la lista de componentes hacia la derecha
   moverDerecha(): void {
     this.margenIzquierda += 100; // Desplaza 100px hacia la derecha
+  }
+
+  // Añadir un botón para borrar el texto del input 
+  inputText: string = ''; // Variable para almacenar el valor del input
+
+  clearText(): void {
+    this.inputText = ''; // Borra el texto
   }
   
 

@@ -32,8 +32,8 @@
 
     <div class="header">
         <div class="input-container">
-            <input type="text" placeholder="Describe tu ordenador ideal!" id="textInput">
-            <img src="assets/images/borrar_icono.png" alt="Borrar texto" class="borrar_icono" onclick="clearText()">
+            <input type="text" placeholder="Describe tu ordenador ideal!" id="textInput" [(ngModel)]="inputText"> <!-- Input de texto -->
+            <img src="assets/images/borrar_icono.png" alt="Borrar texto" class="borrar_icono" (click)="clearText()">
         </div>
         <img src="assets/images/enviar_icono.png" alt="Enviar" class="enviar_icono">
     </div>

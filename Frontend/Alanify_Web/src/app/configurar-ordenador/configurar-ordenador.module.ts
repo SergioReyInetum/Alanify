@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ConfigurarOrdenadorRoutingModule } from './configurar-ordenador-routing.module';
 import { ConfigurarOrdenadorComponent } from './configurar-ordenador.component';
+import { FormsModule } from '@angular/forms';  // Añadir este import para usar formularios en Angular
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ConfigurarOrdenadorComponent } from './configurar-ordenador.component';
   ],
   imports: [
     CommonModule,
-    ConfigurarOrdenadorRoutingModule
+    ConfigurarOrdenadorRoutingModule,
+    FormsModule
   ]
 })
 export class ConfigurarOrdenadorModule { }
