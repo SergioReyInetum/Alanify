@@ -96,7 +96,7 @@ body {
 
 .nav {
   position: fixed; /* Fija la navegación en la pantalla */
-  top: 20px; /* Desplázala hacia abajo desde la parte superior */
+  top: 10px; /* Desplázala hacia abajo desde la parte superior */
   left: 50%; /* Centra la navegación horizontalmente */
   transform: translateX(-50%); /* Asegura que esté perfectamente centrada */
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
@@ -108,34 +108,47 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-    
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
 
-        li {
-            display: inline-block;
-        }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      display: inline-block;
+    }
+  }
+
+  button {
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Para indicar que es clickeable */
+    padding: 10px 15px; /* Aumenta un poco el espacio alrededor del ícono */
+    display: flex;
+    flex-direction: row; /* Alinea el ícono y el texto en una fila */
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+
+    &:hover {
+      color: #007bff; /* Color cuando el mouse pasa sobre el botón */
     }
 
-    a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        img {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 5px;
-        }
+    &.active {
+      color: #007bff; /* Color cuando el botón está activo */
+      text-decoration: underline; /* Subrayado para el botón activo */
     }
+
+    img {
+      width: 25px; /* Tamaño de los íconos más pequeño */
+      height: 25px;
+      margin-right: 10px; /* Espaciado entre el ícono y el texto */
+    }
+  }
 }
 
 .content {
@@ -149,6 +162,29 @@ body {
       flex: 1;
       margin-right: 20px; // Espacio entre la imagen y la lista
     }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .left-arrow {
+      left: 10px; /* Coloca la flecha a la izquierda */
+    }
+  
+    .right-arrow {
+      right: 10px; /* Coloca la flecha a la derecha */
+    }
+  
+    .arrow img {
+      width: 40px;
+      height: 40px;
+    }
+  
   
     .component-list {
       flex: 2;
@@ -177,13 +213,27 @@ body {
         }
   
         .component-icons {
-          .icon {
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
+          .share-button {
+              background: none; /* Sin fondo */
+              border: none; /* Sin borde */
+              cursor: pointer; /* Cursor clickeable */
+              padding: 0; /* Quitar espacio predeterminado */
+              display: flex; /* Centrar el contenido */
+              align-items: center;
+
+              .icon {
+                  width: 24px; /* Tamaño del ícono */
+                  height: 24px;
+                  transition: transform 0.2s, opacity 0.2s;
+
+                  &:hover {
+                      transform: scale(1.1); /* Efecto zoom */
+                      opacity: 0.8; /* Reduce la opacidad */
+                  }
+              }
           }
-        }
       }
+  }
   
       .components-section {
         .component-row {
@@ -197,9 +247,11 @@ body {
             flex: 1;
           }
   
-          .price {
-            flex: 0 0 80px;
-            text-align: right;
+          .edit-price button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
           }
   
           .edit-price {
@@ -251,6 +303,7 @@ body {
     .nav {
         flex-direction: column;
     }
+    
 
     .nav ul {
         flex-direction: column;

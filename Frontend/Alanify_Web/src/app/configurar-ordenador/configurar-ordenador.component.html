@@ -9,18 +9,24 @@
 <body>
     <div class="nav" role="navigation">
         <ul>
-            <li><a href="#">
-                <img src="assets/images/informacion_icono.png" alt="Información Icono">
-                Información
-            </a></li>
-            <li><a href="#">
-                <img src="assets/images/pc_icono.png" alt="Configurar Icono">
-                Configurar ordenador
-            </a></li>
-            <li><a href="#">
-                <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
-                Perfil Usuario
-            </a></li>
+            <li>
+                <button [class.active]="activeTab === 'informacion'" (click)="navigate('informacion')">
+                    <img src="assets/images/informacion_icono.png" alt="Información Icono">
+                    Información
+                </button>
+            </li>
+            <li>
+                <button [class.active]="activeTab === 'configurar'" (click)="navigate('configurar')">
+                    <img src="assets/images/pc_icono.png" alt="Configurar Icono">
+                    Configurar ordenador
+                </button>
+            </li>
+            <li>
+                <button [class.active]="activeTab === 'perfil'" (click)="navigate('perfil')">
+                    <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
+                    Perfil Usuario
+                </button>
+            </li>
         </ul>
     </div>
 
@@ -35,12 +41,17 @@
         <img src="assets/images/logo_Alanify1-removebg-preview.png" alt="AlaniFy Logo" class="logo">
         <div class="separator"></div> <!-- Separador -->
     </div>
-
+    
     <div class="content">
+          <!-- Flecha izquierda para ir a la imagen del PC -->
+        <button class="arrow left-arrow" (click)="moverIzquierda()">
+            <img src="assets/images/flecha-izquierda.png" alt="Flecha izquierda">
+        </button>
         <!-- Imagen del ordenador -->
         <div class="computer-image">
             <img src="assets/images/caja2.jpg" alt="Computer Image" class="computer-image-src">
         </div>
+        <!-- Lista de componentes -->
         <div class="component-list">
             <!-- Encabezado de la lista de componentes -->
             <div class="component-header">
@@ -49,86 +60,66 @@
                     <h2>Lista componentes</h2>
                 </div>
                 <div class="component-icons">
-                    <img src="assets/images/compartir_icon.png" alt="compartir icono" class="icon">
-                </div>
+                    <!-- Botón principal para compartir -->
+                    <button (click)="toggleMenu()" class="share-button">
+                        <img src="assets/images/compartir_icon.png" alt="Compartir icono" class="icon">
+                    </button>
+
+                    <!-- Menú desplegable de redes sociales -->
+                    <div *ngIf="showMenu" class="share-menu">
+                        <!-- Instagram -->
+                        <button (click)="compartirEn('instagram')" class="share-button">
+                        <img src="assets/images/logo_instagram.png" alt="Instagram" class="icon">
+                        </button>
+                        <!-- Telegram -->
+                        <button (click)="compartirEn('telegram')" class="share-button">
+                        <img src="assets/images/logo_telegram.png" alt="Telegram" class="icon">
+                        </button>
+                        <!-- WhatsApp -->
+                        <button (click)="compartirEn('whatsapp')" class="share-button">
+                        <img src="assets/images/logo_whatsapp.png" alt="WhatsApp" class="icon">
+                        </button>
+                        <!-- X (Twitter) -->
+                        <button (click)="compartirEn('twitter')" class="share-button">
+                        <img src="assets/images/logo_X.png" alt="X (Twitter)" class="icon">
+                        </button>
+                        <!-- Facebook -->
+                        <button (click)="compartirEn('facebook')" class="share-button">
+                        <img src="assets/images/Popular-facebook-Logo-png.png" alt="Facebook" class="icon">
+                        </button>
+                        <!-- Copiar link -->
+                        <button (click)="compartirEn('copiarLink')" class="share-button">
+                            <img src="assets/images/copiar-link.png" alt="copiarLink" class="icon">
+                        </button>
+                    </div>
+                    </div>
+                      <!-- Flecha derecha para ir a la lista de componentes -->
+                    <button class="arrow right-arrow" (click)="moverDerecha()">
+                        <img src="assets/images/flecha-derecha.png" alt="Flecha derecha">
+                    </button>
             </div>
             
-            <!-- Lista de componentes -->
-            <div class="components-section">
-                <div class="component-row">
-                    <div class="component">Socket</div>
-                    <div class="price">150 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Procesador</div>
-                    <div class="price">150 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Placa base</div>
-                    <div class="price">100 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Memoria ram</div>
-                    <div class="price">70 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Tarjeta gráfica</div>
-                    <div class="price">350 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Disco duro</div>
-                    <div class="price">60 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Disco duro adicional</div>
-                    <div class="price">40 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Refrigeración cpu</div>
-                    <div class="price">30 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
-                <div class="component-row">
-                    <div class="component">Fuente de alimentación</div>
-                    <div class="price">60 €</div>
-                    <div class="edit-price">
-                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon">
-                    </div>
-                </div>
+        <!-- Lista de componentes -->
+        <div class="components-section">
+            <div *ngFor="let component of components" class="component-row">
+            <div class="component">{{ component.name }}</div>
+            <div class="price">{{ component.price }} €</div>
+            <div class="edit-price">
+                <button (click)="editComponent(component.id)">
+                <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon" />
+                </button>
             </div>
-            
-            <!-- Precio total y botón de continuar -->
-            <div class="total-price-section">
-                <div class="total-price">Precio total: 1080 €</div>
-                <button class="continue-button">Continuar hacia la compra</button>
             </div>
         </div>
-    </div>
+        
+        <!-- Precio total y botón de continuar -->
+        <div class="total-price-section">
+            <div class="total-price">Precio total: {{ totalPrice }} €</div>
+            <button class="continue-button">Continuar hacia la compra</button>
+        </div>
+        </div> <!-- component-list -->
+    </div> <!-- content -->
     
-
     <script>
         function clearText() {
             document.getElementById("textInput").value = "";
