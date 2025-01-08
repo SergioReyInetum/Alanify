@@ -25,6 +25,10 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
       var FrecuenciaBaseRendimiento = "";
       var FrecuenciaTurboEficiencia = "";
       var FrecuenciaTurboRendimiento = "";
+      var Cache = "";
+      var TDP = "";
+      var GraficaIntegrada = "";
+      var Precio = "";
 
       // Extraer los datos de los procesadores
       const procesadores = data.procesadores.map(procesador => ({
@@ -155,11 +159,15 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         FrecuenciaBaseRendimiento = "Null";
         FrecuenciaTurboEficiencia = "Null";
         FrecuenciaTurboRendimiento = "Null";
+        Cache = "Null";
+        TDP = "Null";
+        GraficaIntegrada = "Null";
         for (let i = 0; i < procesador.caracteristicas.length; i++) {
           let linea = procesador.caracteristicas[i];
           // Mirar el socket del procesador
           if (procesador.caracteristicas[i].includes("Socket") && !procesador.caracteristicas[i].includes("**Características**")) {
             Socket = procesador.caracteristicas[i].replace(new RegExp(`\\b${"Socket"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+            continue;
           }
 
           // Mirar los Nucleos e Hilos del procesador
@@ -170,6 +178,7 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
             } else{
               Nucleos = Nucleos[0];
             }
+            continue;
           }
           // Mirar en los nucleos sus nucleos destinados a Eficiencia y Rendimiento
           if(Nucleos != "Null" && (procesador.caracteristicas[i].includes("Rendimiento +") && !procesador.caracteristicas[i].includes("**Características**"))){
@@ -183,6 +192,7 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
             } else{
               NucleosEficiencia = linea[43];
             }
+            continue;
           }
           if ((procesador.caracteristicas[i].includes("hilos")||procesador.caracteristicas[i].includes("subprocesos")||procesador.caracteristicas[i].includes("Hilos")) && !procesador.caracteristicas[i].includes("**Características**")) {
             Hilos = procesador.caracteristicas[i].replace(new RegExp(`\\b(?:Cantidad de hilos|Número de hilos|Cantidad de subprocesos|N.° de subprocesos)\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
@@ -191,19 +201,60 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
             } else{
               Hilos = Hilos[0];
             }
+            continue;
           }
           
           // Mirar la Frecuencia base y la Frecuencia turbo
           if (procesador.caracteristicas[i].includes("Frecuencia base") && !procesador.caracteristicas[i].includes("**Características**")) {
-            FrecuenciaBaseEficiencia = linea[44]+linea[45]+linea[46];
-            FrecuenciaBaseRendimiento = linea[53]+linea[54]+linea[55];
+            let caracteristica = procesador.caracteristicas.find(item => item.includes("Frecuencia base (Eficiencia / Rendimiento)"));
+            if (caracteristica) {
+              let valores = caracteristica.split(":")[1].trim();
+              let [eficiencia, rendimiento] = valores.split(" / ");
+              FrecuenciaBaseEficiencia = eficiencia.replace(new RegExp("GHz"),"");
+              FrecuenciaBaseRendimiento = rendimiento.replace(new RegExp("GHz"),"");
+            }
+            continue;
           }
           if (procesador.caracteristicas[i].includes("Frecuencia turbo") && !procesador.caracteristicas[i].includes("**Características**")) {
-            FrecuenciaTurboEficiencia = linea[45]+linea[46]+linea[47];
-            FrecuenciaTurboRendimiento = linea[55]+linea[56]+linea[57];
+            let caracteristica = procesador.caracteristicas.find(item => item.includes("Frecuencia turbo (Eficiencia / Rendimiento)"));
+            if (caracteristica) {
+              let valores = caracteristica.split(":")[1].trim();
+              let [eficiencia, rendimiento] = valores.split(" / ");
+              FrecuenciaTurboEficiencia = eficiencia.replace(new RegExp("GHz"),"");
+              FrecuenciaTurboRendimiento = rendimiento.replace(new RegExp("GHz"),"");
+            }
+            continue;
           }
 
-        }        
+          // Mirar la caché
+          if (procesador.caracteristicas[i].includes("Caché") && !procesador.caracteristicas[i].includes("**Características**")){
+            let match = linea.match(/(\d+)MB/);
+            if (match) {
+              Cache = match[1];
+            } else {
+              Cache = "";
+            }
+            continue;
+          }
+
+          // Buscar el TDP
+          if (linea.includes("TDP") && !linea.includes("**Características**")) {
+            TDP = linea.replace(new RegExp(`\\b${"TDP"}\\b`, "g"), "")
+                        .replace(new RegExp(`${":"}`), "")
+                        .replace(new RegExp("W"), "")
+                        .trim();
+            continue;
+          }
+
+          // Buscar el nombre de la gráfica integrada
+          if (linea.includes("Gráficos") && !linea.includes("**Características**")) {
+            GraficaIntegrada = linea.replace(new RegExp(`\\b${"Gráficos"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+            continue;
+          }
+        }
+
+        // Mirar el precio del procesador
+        Precio = procesador.precio;
         
         console.log("Fabricante: " + Fabricante);
         console.log("Nombre: " + Nombre);
@@ -222,6 +273,9 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           console.log("Frecuencia Turbo Eficiencia: " + FrecuenciaTurboEficiencia);
           console.log("Frecuencia Turbo Rendimiento: " + FrecuenciaTurboRendimiento);
         }
+        console.log("Caché: " + Cache);
+        console.log("TDP:", TDP);
+        console.log("Gráfica Integrada:", GraficaIntegrada);
         console.log();
       });
 
