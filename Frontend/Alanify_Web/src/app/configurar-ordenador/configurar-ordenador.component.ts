@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; // Importa el router de Angular
 
 @Component({
   selector: 'app-configurar-ordenador',
@@ -20,6 +21,9 @@ export class ConfigurarOrdenadorComponent {
     { id: 9, name: 'Fuente de alimentación', price: 60 }
   ];
 
+   // Inyectamos el Router en el constructor
+   constructor(private router: Router) {}
+
   // Función para manejar la edición del componente
   editComponent(componentId: number) {
     console.log(`Editar componente con ID: ${componentId}`);
@@ -38,10 +42,10 @@ export class ConfigurarOrdenadorComponent {
     return this.components.reduce((sum, component) => sum + component.price, 0);
   }
 
-    // Propiedad para controlar la visibilidad del menú
+    // Propiedad para controlar la visibilidad del menú de redes sociales
     showMenu: boolean = false;
 
-    // Función para alternar la visibilidad del menú
+    // Función para alternar la visibilidad del menú de redes sociales
     toggleMenu(): void {
       this.showMenu = !this.showMenu;
     }
@@ -77,12 +81,12 @@ export class ConfigurarOrdenadorComponent {
     }
 
 
-    // Si hay una URL válida, abrirla en una nueva pestaña
+    // Si hay una URL válida, abrirla en una nueva pestaña 
     if (shareUrl) {
       window.open(shareUrl, '_blank');
     }
   
-    // Ocultar el menú después de compartir
+    // Ocultar el menú  de redes sociales después de compartir
     this.showMenu = false;
   }
 
@@ -97,14 +101,19 @@ export class ConfigurarOrdenadorComponent {
       });
   }
 
-
+  // Propiedad para controlar la pestaña activa
   activeTab: string = 'configurar'; // Define la pestaña activa inicial
     // Función para manejar la navegación
   navigate(tab: string) {
-    this.activeTab = tab;
-    // Aquí puedes redirigir a otros componentes usando el router de Angular si lo deseas
-    // Por ejemplo:
-    // this.router.navigate([`/${tab}`]);
+    // Navegamos a la ruta correspondiente usando el Router
+    if (tab === 'informacion') {
+      this.router.navigate(['/informacion']);
+    } else if (tab === 'perfil') {
+      this.router.navigate(['/perfil-usuario']);
+    } else {
+      // Manejo de la ruta por defecto o cualquier otra lógica que desees implementar
+      console.log('Ruta no manejada:', tab);
+    }
   }
 
 

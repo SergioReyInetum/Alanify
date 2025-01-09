@@ -1,0 +1,169 @@
+// Estilos generales para la página
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/images/fondoWeb_alanify.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+    overflow-x: hidden; /* Evita desplazamiento lateral no deseado */
+  }
+  
+  .nav {
+    position: fixed; /* Fija la navegación en la pantalla */
+    top: 10px; /* Desplázala hacia abajo desde la parte superior */
+    left: 50%; /* Centra la navegación horizontalmente */
+    transform: translateX(-50%); /* Asegura que esté perfectamente centrada */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 15px;
+    border-radius: 15px; /* Bordes redondeados para el efecto de "isla" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para elevar la "isla" */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+  
+      li {
+        display: inline-block;
+      }
+    }
+  
+    button {
+      background: none; /* Sin fondo para los botones */
+      border: none; /* Sin borde */
+      cursor: pointer; /* Para indicar que es clickeable */
+      padding: 10px 15px; /* Aumenta un poco el espacio alrededor del ícono */
+      display: flex;
+      flex-direction: row; /* Alinea el ícono y el texto en una fila */
+      align-items: center;
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+  
+      &:hover {
+        color: #007bff; /* Color cuando el mouse pasa sobre el botón */
+      }
+  
+      &.active {
+        color: #007bff; /* Color cuando el botón está activo */
+        text-decoration: underline; /* Subrayado para el botón activo */
+      }
+  
+      img {
+        width: 25px; /* Tamaño de los íconos más pequeño */
+        height: 25px;
+        margin-right: 10px; /* Espaciado entre el ícono y el texto */
+      }
+    }
+  }
+  
+  .logo-container {
+    text-align: center;
+    margin-top: 150px; /* Ajusta este valor para mover el logo hacia arriba o abajo si es necesario */
+    margin-bottom: 20px; /* Espacio entre el logo y el contenido */
+  }
+  
+  .logo {
+    width: 100px; /* Ajusta el tamaño según necesites */
+  }
+  
+  .separator {
+    margin: 10px auto; /* Espacio alrededor del separador */
+    width: 80%; /* Ancho del separador */
+    height: 10px; /* Grosor del separador */
+    background-color: #ccc; /* Color del separador */
+    border-radius: 1px; /* Bordes ligeramente redondeados */
+  }
+  
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    min-height: 500px;
+  }
+  
+  .info-section {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    .about-us,
+    .contact-info {
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+      h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+      }
+  
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+  
+        .icon {
+          width: 20px;
+          margin-right: 10px;
+        }
+  
+        p {
+          font-size: 16px;
+          color: #555;
+        }
+      }
+    }
+  }
+  
+  // Responsividad
+  @media (max-width: 768px) {
+    .content {
+      padding: 15px;
+    }
+  
+    .info-section {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .logo-container {
+      padding: 15px;
+      .separator {
+        width: 80%;
+      }
+    }
+  
+    .nav {
+      ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      li {
+        margin: 10px 0;
+      }
+    }
+  }
+  
