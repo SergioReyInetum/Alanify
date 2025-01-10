@@ -7,8 +7,8 @@ token_huggingface = "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"
 
 def cargar_modelo():
     print("Cargando el modelo y el tokenizador desde Hugging Face...")
-    tokenizer = AutoTokenizer.from_pretrained(modelo_nombre)
-    modelo = AutoModelForSequenceClassification.from_pretrained(modelo_nombre)
+    tokenizer = AutoTokenizer.from_pretrained(modelo_nombre, use_auth_token=token_huggingface)
+    modelo = AutoModelForSequenceClassification.from_pretrained(modelo_nombre, use_auth_token=token_huggingface)
     return pipeline("text-classification", model=modelo, tokenizer=tokenizer)
 
 def clasificar_frase(clasificador, frase):
