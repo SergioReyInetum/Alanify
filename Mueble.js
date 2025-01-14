@@ -12,23 +12,23 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
     // Verifica si el campo "procesadores" es un array
     if (Array.isArray(data.procesadores)) {
       // Crear todas las variables necesarias
-      var Nombre = "";
-      var Fabricante = "";
-      var Socket = "";
-      var Nomenclatura = "";
-      var Gen = "";
-      var Nucleos = "";
-      var NucleosEficiencia = "";
-      var NucleosRendimiento = "";
-      var Hilos = "";
-      var FrecuenciaBaseEficiencia = "";
-      var FrecuenciaBaseRendimiento = "";
-      var FrecuenciaTurboEficiencia = "";
-      var FrecuenciaTurboRendimiento = "";
-      var Cache = "";
-      var TDP = "";
-      var GraficaIntegrada = "";
-      var Precio = "";
+      var Nombre_Procesadores = "";
+      var Fabricante_Procesadores = "";
+      var Socket_Procesadores = "";
+      var Nomenclatura_Procesadores = "";
+      var Gen_Procesadores = "";
+      var Nucleos_Procesadores = "";
+      var NucleosEficiencia_Procesadores = "";
+      var NucleosRendimiento_Procesadores = "";
+      var Hilos_Procesadores = "";
+      var FrecuenciaBaseEficiencia_Procesadores = "";
+      var FrecuenciaBaseRendimiento_Procesadores = "";
+      var FrecuenciaTurboEficiencia_Procesadores = "";
+      var FrecuenciaTurboRendimiento_Procesadores = "";
+      var Cache_Procesadores = "";
+      var TDP_Procesadores = "";
+      var GraficaIntegrada_Procesadores = "";
+      var Precio_Procesadores = "";
 
       // Extraer los datos de los procesadores
       const procesadores = data.procesadores.map(procesador => ({
@@ -39,65 +39,65 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
       }));
 
       // Imprimir los nombres y fabricantes de los procesadores en consola
-      Nombre = "Null";
-      Fabricante = "Null";
+      Nombre_Procesadores = "Null";
+      Fabricante_Procesadores = "Null";
       procesadores.forEach((procesador, index) => {
         if(procesador.caracteristicas[0].includes("Intel")||procesador.caracteristicas[0].includes("AMD")||procesador.caracteristicas[0].includes("Ryzen")){
-          Nombre = procesador.caracteristicas[0]
+          Nombre_Procesadores = procesador.caracteristicas[0]
         } else{
-          Nombre = procesador.nombre;
+          Nombre_Procesadores = procesador.nombre;
         }
 
         // Mirar de forma ordenada si el procesador es Intel, AMD u Otro
-        Fabricante = "";
+        Fabricante_Procesadores = "";
         if (procesador.nombre.split(/\s+/).includes("Intel")) {
-          Fabricante = "Intel";
+          Fabricante_Procesadores = "Intel";
         }
         else if (procesador.nombre.split(/\s+/).includes("AMD") || procesador.nombre.split(/\s+/).includes("Ryzen")) {
-          Fabricante = "AMD";
+          Fabricante_Procesadores = "AMD";
         }
         else{
           for (let i = 0; i < procesador.nombre.length; i++) {
             if (procesador.nombre[i] == " ") {
                 break;                
             }
-          Fabricante = Fabricante + procesador.nombre[i];
+          Fabricante_Procesadores = Fabricante_Procesadores + procesador.nombre[i];
           }
         }
 
         // Mirar la nomenclatura de los procesadores
-        Nomenclatura = "";
-        if(Fabricante == "Intel"){
+        Nomenclatura_Procesadores = "";
+        if(Fabricante_Procesadores == "Intel"){
           let listaCategoria = ["Core","Pentium","Celeron","Xeon"];
           let num;
-          if(Nombre.includes(" " + listaCategoria[0] + " ")){
+          if(Nombre_Procesadores.includes(" " + listaCategoria[0] + " ")){
             num = 0;
           }
-          else if(Nombre.includes(" " + listaCategoria[1] + " ")){ 
+          else if(Nombre_Procesadores.includes(" " + listaCategoria[1] + " ")){ 
             num = 1;
           }
-          else if(Nombre.includes(" " + listaCategoria[2] + " ")){
+          else if(Nombre_Procesadores.includes(" " + listaCategoria[2] + " ")){
             num = 2;
           }
-          else if(Nombre.includes(" " + listaCategoria[3] + " ")){
+          else if(Nombre_Procesadores.includes(" " + listaCategoria[3] + " ")){
             num = 3;
           }
           else{
             num = 4;
-            Nomenclatura = "Null";
+            Nomenclatura_Procesadores = "Null";
             exit;
           }
           if(num!=4){
-            for (let a = (6 + listaCategoria[num].length + 1); a < Nombre.length; a++) {
-            Nomenclatura = Nomenclatura + Nombre[a];
+            for (let a = (6 + listaCategoria[num].length + 1); a < Nombre_Procesadores.length; a++) {
+            Nomenclatura_Procesadores = Nomenclatura_Procesadores + Nombre_Procesadores[a];
             }
           }
         }
 
-        else if(Fabricante == "AMD" && Nombre.includes("Ryzen")){
-          for (let a = 10; a < Nombre.length; a++) {
-            if(Nombre[a] != "-"){
-              Nomenclatura = Nomenclatura + Nombre[a];
+        else if(Fabricante_Procesadores == "AMD" && Nombre_Procesadores.includes("Ryzen")){
+          for (let a = 10; a < Nombre_Procesadores.length; a++) {
+            if(Nombre_Procesadores[a] != "-"){
+              Nomenclatura_Procesadores = Nomenclatura_Procesadores + Nombre_Procesadores[a];
             }
             else{
               break;
@@ -106,42 +106,42 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         }
 
         else{
-          Nomenclatura = "Null";
+          Nomenclatura_Procesadores = "Null";
         }
 
-        // Mirar la generación de los procesadores
-        Gen = "Null";
-        if(Fabricante == "Intel" && Nomenclatura[0] == "i"){
-          if (Nomenclatura[1] != 1) {
-            Gen = Nomenclatura[0] + Nomenclatura[1];
+        // Mirar la gen_Procesadoreseración de los procesadores
+        Gen_Procesadores = "Null";
+        if(Fabricante_Procesadores == "Intel" && Nomenclatura_Procesadores[0] == "i"){
+          if (Nomenclatura_Procesadores[1] != 1) {
+            Gen_Procesadores = Nomenclatura_Procesadores[0] + Nomenclatura_Procesadores[1];
           } else{
-            Gen = Nomenclatura[0] + Nomenclatura[1] + Nomenclatura[2];
+            Gen_Procesadores = Nomenclatura_Procesadores[0] + Nomenclatura_Procesadores[1] + Nomenclatura_Procesadores[2];
           }
         }
-        else if(Fabricante == "AMD"){
-          for (let i = 0; i < Nomenclatura.length; i++) {
-            if(Nomenclatura[i] == " " && !isNaN(Nomenclatura[i-1])){
-              switch (Nomenclatura[i+1]) {
+        else if(Fabricante_Procesadores == "AMD"){
+          for (let i = 0; i < Nomenclatura_Procesadores.length; i++) {
+            if(Nomenclatura_Procesadores[i] == " " && !isNaN(Nomenclatura_Procesadores[i-1])){
+              switch (Nomenclatura_Procesadores[i+1]) {
                 case "1":
-                  Gen = "Zen";
+                  Gen_Procesadores = "Zen";
                   break;
                 case "2":
-                  Gen = "Zen+";
+                  Gen_Procesadores = "Zen+";
                   break;
                 case "3":
-                  Gen = "Zen 2";
+                  Gen_Procesadores = "Zen 2";
                   break;
                 case "5":
-                  Gen = "Zen 3";
+                  Gen_Procesadores = "Zen 3";
                   break;
                 case "7":
-                  Gen = "Zen 4";
+                  Gen_Procesadores = "Zen 4";
                   break;  
                 case "8":
-                  Gen = "Zen 5";
+                  Gen_Procesadores = "Zen 5";
                   break;                    
                 default:
-                  Gen = "Null";
+                  Gen_Procesadores = "Null";
                   break;
             }
               break;
@@ -150,56 +150,56 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           }
         }
 
-        Socket = "Null";
-        Nucleos = "Null";
-        NucleosRendimiento = "Null";
-        NucleosEficiencia = "Null";
-        Hilos = "Null";
-        FrecuenciaBaseEficiencia = "Null";
-        FrecuenciaBaseRendimiento = "Null";
-        FrecuenciaTurboEficiencia = "Null";
-        FrecuenciaTurboRendimiento = "Null";
-        Cache = "Null";
-        TDP = "Null";
-        GraficaIntegrada = "Null";
+        Socket_Procesadores = "Null";
+        Nucleos_Procesadores = "Null";
+        NucleosRendimiento_Procesadores = "Null";
+        NucleosEficiencia_Procesadores = "Null";
+        Hilos_Procesadores = "Null";
+        FrecuenciaBaseEficiencia_Procesadores = "Null";
+        FrecuenciaBaseRendimiento_Procesadores = "Null";
+        FrecuenciaTurboEficiencia_Procesadores = "Null";
+        FrecuenciaTurboRendimiento_Procesadores = "Null";
+        Cache_Procesadores = "Null";
+        TDP_Procesadores = "Null";
+        GraficaIntegrada_Procesadores = "Null";
         for (let i = 0; i < procesador.caracteristicas.length; i++) {
           let linea = procesador.caracteristicas[i];
           // Mirar el socket del procesador
-          if (procesador.caracteristicas[i].includes("Socket") && !procesador.caracteristicas[i].includes("**Características**")) {
-            Socket = procesador.caracteristicas[i].replace(new RegExp(`\\b${"Socket"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+          if (procesador.caracteristicas[i].includes("Socket_Procesadores") && !procesador.caracteristicas[i].includes("**Características**")) {
+            Socket_Procesadores = procesador.caracteristicas[i].replace(new RegExp(`\\b${"Socket_Procesadores"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
             continue;
           }
 
           // Mirar los Nucleos e Hilos del procesador
           if ((procesador.caracteristicas[i].includes("núcleos")||procesador.caracteristicas[i].includes("CPU")||procesador.caracteristicas[i].includes("Núcleos")) && !procesador.caracteristicas[i].includes("**Características**")) {
-            Nucleos = procesador.caracteristicas[i].replace(new RegExp(`\\b(?:Cantidad de núcleos|Número de núcleos|Núcleos CPU)\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
-            if(!isNaN(Nucleos[1])){
-              Nucleos = Nucleos[0] + Nucleos[1];
+            Nucleos_Procesadores = procesador.caracteristicas[i].replace(new RegExp(`\\b(?:Cantidad de núcleos|Número de núcleos|Núcleos CPU)\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+            if(!isNaN(Nucleos_Procesadores[1])){
+              Nucleos_Procesadores = Nucleos_Procesadores[0] + Nucleos_Procesadores[1];
             } else{
-              Nucleos = Nucleos[0];
+              Nucleos_Procesadores = Nucleos_Procesadores[0];
             }
             continue;
           }
           // Mirar en los nucleos sus nucleos destinados a Eficiencia y Rendimiento
-          if(Nucleos != "Null" && (procesador.caracteristicas[i].includes("Rendimiento +") && !procesador.caracteristicas[i].includes("**Características**"))){
+          if(Nucleos_Procesadores != "Null" && (procesador.caracteristicas[i].includes("Rendimiento +") && !procesador.caracteristicas[i].includes("**Características**"))){
             if(!isNaN(linea[26])){
-              NucleosRendimiento = linea[25]+linea[26];
+              NucleosRendimiento_Procesadores = linea[25]+linea[26];
             } else{
-              NucleosRendimiento = linea[25];
+              NucleosRendimiento_Procesadores = linea[25];
             }
             if(!isNaN(linea[44])){
-              NucleosEficiencia = linea[43]+linea[44];
+              NucleosEficiencia_Procesadores = linea[43]+linea[44];
             } else{
-              NucleosEficiencia = linea[43];
+              NucleosEficiencia_Procesadores = linea[43];
             }
             continue;
           }
-          if ((procesador.caracteristicas[i].includes("hilos")||procesador.caracteristicas[i].includes("subprocesos")||procesador.caracteristicas[i].includes("Hilos")) && !procesador.caracteristicas[i].includes("**Características**")) {
-            Hilos = procesador.caracteristicas[i].replace(new RegExp(`\\b(?:Cantidad de hilos|Número de hilos|Cantidad de subprocesos|N.° de subprocesos)\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
-            if(!isNaN(Hilos[1])){
-              Hilos = Hilos[0] + Hilos[1];
+          if ((procesador.caracteristicas[i].includes("hilos_Procesadores")||procesador.caracteristicas[i].includes("subprocesos")||procesador.caracteristicas[i].includes("Hilos_Procesadores")) && !procesador.caracteristicas[i].includes("**Características**")) {
+            Hilos_Procesadores = procesador.caracteristicas[i].replace(new RegExp(`\\b(?:Cantidad de hilos_Procesadores|Número de hilos_Procesadores|Cantidad de subprocesos|N.° de subprocesos)\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+            if(!isNaN(Hilos_Procesadores[1])){
+              Hilos_Procesadores = Hilos_Procesadores[0] + Hilos_Procesadores[1];
             } else{
-              Hilos = Hilos[0];
+              Hilos_Procesadores = Hilos_Procesadores[0];
             }
             continue;
           }
@@ -210,8 +210,8 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
             if (caracteristica) {
               let valores = caracteristica.split(":")[1].trim();
               let [eficiencia, rendimiento] = valores.split(" / ");
-              FrecuenciaBaseEficiencia = eficiencia.replace(new RegExp("GHz"),"");
-              FrecuenciaBaseRendimiento = rendimiento.replace(new RegExp("GHz"),"");
+              FrecuenciaBaseEficiencia_Procesadores = eficiencia.replace(new RegExp("GHz"),"");
+              FrecuenciaBaseRendimiento_Procesadores = rendimiento.replace(new RegExp("GHz"),"");
             }
             continue;
           }
@@ -220,8 +220,8 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
             if (caracteristica) {
               let valores = caracteristica.split(":")[1].trim();
               let [eficiencia, rendimiento] = valores.split(" / ");
-              FrecuenciaTurboEficiencia = eficiencia.replace(new RegExp("GHz"),"");
-              FrecuenciaTurboRendimiento = rendimiento.replace(new RegExp("GHz"),"");
+              FrecuenciaTurboEficiencia_Procesadores = eficiencia.replace(new RegExp("GHz"),"");
+              FrecuenciaTurboRendimiento_Procesadores = rendimiento.replace(new RegExp("GHz"),"");
             }
             continue;
           }
@@ -230,57 +230,88 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           if (procesador.caracteristicas[i].includes("Caché") && !procesador.caracteristicas[i].includes("**Características**")){
             let match = linea.match(/(\d+)MB/);
             if (match) {
-              Cache = match[1];
+              Cache_Procesadores = match[1];
             } else {
-              Cache = "";
+              Cache_Procesadores = "";
             }
             continue;
           }
 
-          // Buscar el TDP
-          if (linea.includes("TDP") && !linea.includes("**Características**")) {
-            TDP = linea.replace(new RegExp(`\\b${"TDP"}\\b`, "g"), "")
+          // Buscar el TDP_Procesadores
+          if (linea.includes("TDP_Procesadores") && !linea.includes("**Características**")) {
+            TDP_Procesadores = linea.replace(new RegExp(`\\b${"TDP_Procesadores"}\\b`, "g"), "")
                         .replace(new RegExp(`${":"}`), "")
                         .replace(new RegExp("W"), "")
                         .trim();
             continue;
           }
 
-          // Buscar el nombre de la gráfica integrada
+          // Buscar el nombre_Procesadores de la gráfica integrada
           if (linea.includes("Gráficos") && !linea.includes("**Características**")) {
-            GraficaIntegrada = linea.replace(new RegExp(`\\b${"Gráficos"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
+            GraficaIntegrada_Procesadores = linea.replace(new RegExp(`\\b${"Gráficos"}\\b`, "g"), "").replace(new RegExp(`${":"}`), "").trim();
             continue;
           }
         }
 
-        // Mirar el precio del procesador
-        Precio = procesador.precio;
+        // Mirar el precio_Procesadores del procesador
+        Precio_Procesadores = procesador.precio;
         
-        console.log("Fabricante: " + Fabricante);
-        console.log("Nombre: " + Nombre);
-        console.log("Nomenclatura: " + Nomenclatura);
-        console.log("Socket: " + Socket);
-        console.log("Gen: " + Gen);
-        console.log("Nucleos: " + Nucleos);
-        if (NucleosRendimiento != "Null"){
-          console.log("Nucleos Rendimiento: " + NucleosRendimiento);
-          console.log("Nucleos Eficiencia: " + NucleosEficiencia);
-        }
-        console.log("Hilos: " + Hilos);
-        if(FrecuenciaBaseEficiencia != "Null"){
-          console.log("Frecuencia Base Eficiencia: " + FrecuenciaBaseEficiencia);
-          console.log("Frecuencia Base Rendimiento: " + FrecuenciaBaseRendimiento);
-          console.log("Frecuencia Turbo Eficiencia: " + FrecuenciaTurboEficiencia);
-          console.log("Frecuencia Turbo Rendimiento: " + FrecuenciaTurboRendimiento);
-        }
-        console.log("Caché: " + Cache);
-        console.log("TDP:", TDP);
-        console.log("Gráfica Integrada:", GraficaIntegrada);
+        console.log("Fabricante: " + Fabricante_Procesadores);
+        console.log("Nombre: " + Nombre_Procesadores);
+        console.log("Nomenclatura: " + Nomenclatura_Procesadores);
+        console.log("Socket: " + Socket_Procesadores);
+        console.log("Gen: " + Gen_Procesadores);
+        console.log("Nucleos: " + Nucleos_Procesadores);
+        console.log("Nucleos Rendimiento: " + NucleosRendimiento_Procesadores);
+        console.log("Nucleos Eficiencia: " + NucleosEficiencia_Procesadores);
+        console.log("Hilos: " + Hilos_Procesadores);
+        console.log("Frecuencia Base Eficiencia: " + FrecuenciaBaseEficiencia_Procesadores);
+        console.log("Frecuencia Base Rendimiento: " + FrecuenciaBaseRendimiento_Procesadores);
+        console.log("Frecuencia Turbo Eficiencia: " + FrecuenciaTurboEficiencia_Procesadores);
+        console.log("Frecuencia Turbo Rendimiento: " + FrecuenciaTurboRendimiento_Procesadores);
+        console.log("Caché: " + Cache_Procesadores);
+        console.log("TDP:", TDP_Procesadores);
+        console.log("Gráfica Integrada:", GraficaIntegrada_Procesadores);
+        console.log("Precio: " + Precio_Procesadores)
         console.log();
       });
 
     } else {
       console.error('El archivo JSON no contiene un arreglo "procesadores".');
+    }
+    if (Array.isArray(data.placas_base)) {
+      // Crear todas las variables necesarias
+      var Nombre_Placa_Base = "";
+      var Fabricante_Placa_Base = "";
+      var Socket_Placa_Base = "";
+      var Forma_Placa_Base = "";
+      var DDR_Placa_Base = "";
+      var NumRAM_Placa_Base = "";
+      var MHz_Placa_Base = "";
+      var ConectorAlmacenamiento_Placa_Base = "";
+      var NumPCI_Placa_Base = "";
+      var NumPCIE_Placa_Base = "";
+      var USB_Placa_Base = "";
+      var NumUSB_Placa_Base = "";
+      var Audio_Placa_Base = "";
+      var PuertosVideo_Placa_Base = "";
+      var Wifi_Placa_Base = "";
+      var Bluetooth_Placa_Base = "";
+      var Ethernet_Placa_Base = "";
+      var RGB_Placa_Base = false;
+      var Precio_Placa_Base = "";
+
+      // Extraer los datos de las placas base
+      const PlacasBase = data.placas_base.map(placa_base => ({
+        nombre: placa_base.nombre,
+        precio: placa_base.precio,
+        url: placa_base.url,
+        caracteristicas: placa_base.caracteristicas
+      }));
+      console.log(PlacasBase);
+      console.log();
+    } else {
+      console.error('El archivo JSON no contiene un arreglo "Placas base".');
     }
   } catch (parseError) {
     console.error('Error al analizar el JSON:', parseError);
