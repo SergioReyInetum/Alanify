@@ -308,10 +308,30 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
         url: placa_base.url,
         caracteristicas: placa_base.caracteristicas
       }));
-      console.log(PlacasBase);
-      console.log();
+
+      PlacasBase.forEach((PB, index) => {
+        Nombre_Placa_Base = PB.nombre;
+        if(Nombre_Placa_Base.toLowerCase().includes("asus")){
+          Fabricante_Placa_Base = "Asus";
+        } else if(Nombre_Placa_Base.toLowerCase().includes("msi")){
+          Fabricante_Placa_Base = "MSI";
+        } else if(Nombre_Placa_Base.toLowerCase().includes("gigabyte")){
+          Fabricante_Placa_Base = "Gigabyte";
+        } else if(Nombre_Placa_Base.toLowerCase().includes("asrock")){
+          Fabricante_Placa_Base = "Asrock";
+        } else if(Nombre_Placa_Base.toLowerCase().includes("asus")){
+          Fabricante_Placa_Base = "Asus";
+        }
+        else{
+          Fabricante_Placa_Base = "Null";
+        }
+
+        console.log(Nombre_Placa_Base);
+        console.log(Fabricante_Placa_Base);
+        console.log();
+      });      
     } else {
-      console.error('El archivo JSON no contiene un arreglo "Placas base".');
+      console.error('El archivo JSON no contiene un arreglo "placas base".');
     }
   } catch (parseError) {
     console.error('Error al analizar el JSON:', parseError);
