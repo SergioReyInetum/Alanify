@@ -8,20 +8,23 @@
 </head>
 <body>
     <div class="nav" role="navigation">
+        <div class="logo-container">
+            <img src="assets/images/logo_alanify_definitivo83.png" alt="AlaniFy Logo" class="logo">
+        </div>
         <ul>
-            <li>
+            <li class="nav-left">
                 <button [class.active]="activeTab === 'informacion'" (click)="navigate('informacion')">
                     <img src="assets/images/informacion_icono.png" alt="Información Icono">
                     Información
                 </button>
             </li>
-            <li>
+            <li class="nav-center">
                 <button [class.active]="activeTab === 'configurar'" (click)="navigate('configurar')">
                     <img src="assets/images/pc_icono.png" alt="Configurar Icono">
                     Configurar ordenador
                 </button>
             </li>
-            <li>
+            <li class="nav-right">
                 <button [class.active]="activeTab === 'perfil'" (click)="navigate('perfil')">
                     <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
                     Perfil Usuario
@@ -34,13 +37,11 @@
         <div class="input-container">
             <input type="text" placeholder="Describe tu ordenador ideal!" id="textInput" [(ngModel)]="inputText"> <!-- Input de texto -->
             <img src="assets/images/borrar_icono.png" alt="Borrar texto" class="borrar_icono" (click)="clearText()">
+            
         </div>
         <img src="assets/images/enviar_icono.png" alt="Enviar" class="enviar_icono">
     </div>
-    <div class="logo-container">
-        <img src="assets/images/logo_alanify_definitivo83.png" alt="AlaniFy Logo" class="logo">
-        <div class="separator"></div> <!-- Separador -->
-    </div>
+    
     
     <div class="content">
           <!-- Flecha izquierda para ir a la imagen del PC -->

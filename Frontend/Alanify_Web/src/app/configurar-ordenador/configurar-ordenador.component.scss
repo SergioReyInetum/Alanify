@@ -76,15 +76,7 @@ body {
     }
 }
 
-.logo-container {
-    text-align: center;
-    margin-top: -1px; /* Ajusta este valor para mover el logo hacia arriba o abajo si es necesario */
-    margin-bottom: 20px; /* Espacio entre el logo y el contenido */
-}
 
-.logo {
-    width: 100px; /* Ajusta el tamaño según necesites */
-}
 
 .separator {
   margin: 10px auto; /* Espacio alrededor del separador */
@@ -106,8 +98,18 @@ body {
   z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
   width: 80%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start; 
   align-items: center;
+
+  .logo-container {
+    margin-left: 5px; // Pega el logo más a la izquierda
+    margin-right: 20px; // Espacio entre el logo y las pestañas
+
+    .logo {
+        width: 60px; // Aumenta un poco el tamaño del logo (de 50px a 60px)
+        height: auto;
+    }
+}
 
   ul {
     list-style-type: none;
@@ -115,11 +117,25 @@ body {
     margin: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
 
     li {
       display: inline-block;
+      margin: 0 5px; // Espacio pequeño entre las pestañas
     }
+    .nav-left {
+      margin-left: 0; // Pega la pestaña izquierda al borde
+  }
+
+  .nav-center {
+    flex: 0 0 auto; // Quita el flex-grow para evitar que se expanda
+    margin: 0 auto; // Centra horizontalmente "Configurar ordenador"
+  }
+
+  .nav-right {
+      margin-right: 0; // Pega la pestaña derecha al borde
+  }
   }
 
   button {
@@ -306,23 +322,33 @@ body {
         margin-right: 0;
     }
 
-    .logo-container {
-        margin-top: 10px; /* Ajusta para pantallas pequeñas */
-    }
-
     .nav {
-        flex-direction: column;
-    }
-    
+      width: 90%; // Aumenta el ancho en pantallas pequeñas
+      flex-direction: column; // Apila los elementos en pantallas pequeñas
+      padding: 5px;
 
-    .nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+      .logo-container {
+          margin: 5px 0; // Reduce los márgenes en pantallas pequeñas
+          .logo {
+              width: 50px; // Reduce el tamaño del logo en pantallas pequeñas
+          }
+      }
 
-    .nav li {
-        margin-bottom: 10px;
-    }
+      ul {
+          flex-direction: column; // Apila las pestañas verticalmente
+          align-items: center; // Centra las pestañas verticalmente
+          width: 100%;
+
+          li {
+              margin: 5px 0; // Espacio vertical entre las pestañas
+          }
+
+          .nav-left, .nav-center, .nav-right {
+              margin: 0; // Elimina márgenes en pantallas pequeñas
+              text-align: center; // Centra el texto
+          }
+      }
+  }
 
     .content {
         flex-direction: column;
