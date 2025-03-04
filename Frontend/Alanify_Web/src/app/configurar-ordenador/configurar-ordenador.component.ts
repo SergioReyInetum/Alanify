@@ -1,45 +1,112 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el router de Angular
+import { MatDialog } from '@angular/material/dialog'; // Importa MatDialog
+import { ShareModalComponent } from '../share-modal/share-modal.component'; // Importa el componente del modal
+import { trigger, state, style, animate, transition } from '@angular/animations'; // Importa animaciones
 
 @Component({
   selector: 'app-configurar-ordenador',
   standalone: false,
   
   templateUrl: './configurar-ordenador.component.html',
-  styleUrl: './configurar-ordenador.component.scss'
+  styleUrl: './configurar-ordenador.component.scss',
+  animations: [
+    trigger('slideAnimation', [
+      state('void', style({ transform: 'translateX(100%)' })),
+      state('left', style({ transform: 'translateX(-100%)' })),
+      state('right', style({ transform: 'translateX(0)' })),
+      transition('* => right', animate('500ms ease-in-out')),
+      transition('* => left', animate('500ms ease-in-out')),
+    ])
+  ]
 })
 export class ConfigurarOrdenadorComponent {
-  components = [
-    { id: 1, name: 'Socket', price: 150 },
-    { id: 2, name: 'Procesador', price: 150 },
-    { id: 3, name: 'Placa base', price: 100 },
-    { id: 4, name: 'Memoria RAM', price: 70 },
-    { id: 5, name: 'Tarjeta gráfica', price: 350 },
-    { id: 6, name: 'Disco duro', price: 60 },
-    { id: 7, name: 'Disco duro adicional', price: 40 },
-    { id: 8, name: 'Refrigeración CPU', price: 30 },
-    { id: 9, name: 'Fuente de alimentación', price: 60 }
+  // Tres opciones de ordenadores simuladas (puedes reemplazarlas con datos de la IA más tarde)
+  computerOptions = [
+    {
+      id: 1,
+      image: 'assets/images/caja1.png', // Primera imagen de ordenador
+      components: [
+        { id: 1, name: 'Socket', price: 150 },
+        { id: 2, name: 'Procesador', price: 200 },
+        { id: 3, name: 'Placa base', price: 120 },
+        { id: 4, name: 'Memoria RAM', price: 80 },
+        { id: 5, name: 'Tarjeta gráfica', price: 400 },
+        { id: 6, name: 'Disco duro', price: 70 },
+        { id: 7, name: 'Disco duro adicional', price: 50 },
+        { id: 8, name: 'Refrigeración CPU', price: 35 },
+        { id: 9, name: 'Fuente de alimentación', price: 70 }
+      ]
+    },
+    {
+      id: 2,
+      image: 'assets/images/caja2.png', // Segunda imagen de ordenador (la actual en tu HTML)
+      components: [
+        { id: 1, name: 'Socket', price: 150 },
+        { id: 2, name: 'Procesador', price: 150 },
+        { id: 3, name: 'Placa base', price: 100 },
+        { id: 4, name: 'Memoria RAM', price: 70 },
+        { id: 5, name: 'Tarjeta gráfica', price: 350 },
+        { id: 6, name: 'Disco duro', price: 60 },
+        { id: 7, name: 'Disco duro adicional', price: 40 },
+        { id: 8, name: 'Refrigeración CPU', price: 30 },
+        { id: 9, name: 'Fuente de alimentación', price: 60 }
+      ]
+    },
+    {
+      id: 3,
+      image: 'assets/images/caja3.png', // Tercera imagen de ordenador (debes agregar esta imagen a assets)
+      components: [
+        { id: 1, name: 'Socket', price: 160 },
+        { id: 2, name: 'Procesador', price: 180 },
+        { id: 3, name: 'Placa base', price: 110 },
+        { id: 4, name: 'Memoria RAM', price: 90 },
+        { id: 5, name: 'Tarjeta gráfica', price: 450 },
+        { id: 6, name: 'Disco duro', price: 80 },
+        { id: 7, name: 'Disco duro adicional', price: 60 },
+        { id: 8, name: 'Refrigeración CPU', price: 40 },
+        { id: 9, name: 'Fuente de alimentación', price: 80 }
+      ]
+    }
   ];
 
-   // Inyectamos el Router en el constructor
-   constructor(private router: Router) {}
+  currentOptionIndex: number = 1; // Inicia con la segunda opción (índice 1, ya que el array es 0-based)
 
-  // Función para manejar la edición del componente
+  @HostBinding('@slideAnimation') get slideState() {
+    return this.currentOptionIndex === 1 ? 'right' : this.currentOptionIndex === 0 ? 'left' : 'right';
+  }
+
+   // Inyectamos el Router en el constructor
+   constructor(private router: Router, public dialog: MatDialog) {}
+
+
+
+  get currentOption() {
+    return this.computerOptions[this.currentOptionIndex];
+  }
+
+  get totalPrice(): number {
+    return this.currentOption.components.reduce((sum, component) => sum + component.price, 0);
+  }
+
   editComponent(componentId: number) {
     console.log(`Editar componente con ID: ${componentId}`);
-    const component = this.components.find(c => c.id === componentId);
+    const component = this.currentOption.components.find(c => c.id === componentId);
     if (component) {
       console.log(`Componente encontrado: ${component.name}`);
-      // Aquí puedes agregar lógica para abrir un formulario de edición, o modificar el componente directamente
     } else {
       console.log('Componente no encontrado');
     }
   }
-  
 
-  // Calcular el precio total
-  get totalPrice(): number {
-    return this.components.reduce((sum, component) => sum + component.price, 0);
+  // Navegar a la opción anterior (cíclicamente)
+  moverIzquierda(): void {
+    this.currentOptionIndex = (this.currentOptionIndex - 1 + this.computerOptions.length) % this.computerOptions.length;
+  }
+
+  // Navegar a la opción siguiente (cíclicamente)
+  moverDerecha(): void {
+    this.currentOptionIndex = (this.currentOptionIndex + 1) % this.computerOptions.length;
   }
 
     // Propiedad para controlar la visibilidad del menú de redes sociales
@@ -47,7 +114,7 @@ export class ConfigurarOrdenadorComponent {
 
     // Función para alternar la visibilidad del menú de redes sociales
     toggleMenu(): void {
-      this.showMenu = !this.showMenu;
+      // esta funcion ya no es necesaria, se puede eliminar
     }
 
   compartirEn(plataforma: string): void {
@@ -89,6 +156,18 @@ export class ConfigurarOrdenadorComponent {
     // Ocultar el menú  de redes sociales después de compartir
     this.showMenu = false;
   }
+  // Nueva función para abrir el modal de compartir
+  openShareModal(): void {
+    const dialogRef = this.dialog.open(ShareModalComponent, {
+      width: '400px', // Ancho del modal
+      height: 'auto', // Altura automática
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal fue cerrado');
+    });
+  }
 
   // Función para copiar el enlace al portapapeles
   copyLink(url: string): void {
@@ -116,19 +195,6 @@ export class ConfigurarOrdenadorComponent {
     }
   }
 
-
-  // Propiedad para controlar el desplazamiento horizontal
-  margenIzquierda = 0;
-
-  // Función para mover la imagen y la lista de componentes hacia la izquierda
-  moverIzquierda(): void {
-    this.margenIzquierda -= 100; // Desplaza 100px hacia la izquierda
-  }
-
-  // Función para mover la imagen y la lista de componentes hacia la derecha
-  moverDerecha(): void {
-    this.margenIzquierda += 100; // Desplaza 100px hacia la derecha
-  }
 
   // Añadir un botón para borrar el texto del input 
   inputText: string = ''; // Variable para almacenar el valor del input

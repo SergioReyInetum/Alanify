@@ -1,0 +1,30 @@
+<div class="share-modal">
+    <h2>Compartir en redes sociales</h2>
+    <div class="share-options">
+        <!-- Instagram -->
+        <button (click)="compartirEn('instagram')" class="share-button">
+            <img src="assets/images/logo_instagram.png" alt="Instagram" class="icon">
+        </button>
+        <!-- Telegram -->
+        <button (click)="compartirEn('telegram')" class="share-button">
+            <img src="assets/images/logo_telegram.png" alt="Telegram" class="icon">
+        </button>
+        <!-- WhatsApp -->
+        <button (click)="compartirEn('whatsapp')" class="share-button">
+            <img src="assets/images/logo_whatsapp.png" alt="WhatsApp" class="icon">
+        </button>
+        <!-- X (Twitter) -->
+        <button (click)="compartirEn('twitter')" class="share-button">
+            <img src="assets/images/logo_X.png" alt="X (Twitter)" class="icon">
+        </button>
+        <!-- Facebook -->
+        <button (click)="compartirEn('facebook')" class="share-button">
+            <img src="assets/images/Popular-facebook-Logo-png.png" alt="Facebook" class="icon">
+        </button>
+        <!-- Copiar link -->
+        <button (click)="compartirEn('copiarLink')" class="share-button">
+            <img src="assets/images/copiar-link.png" alt="Copiar enlace" class="icon">
+        </button>
+    </div>
+    <button (click)="closeDialog()" class="close-button">Cerrar</button>
+</div>

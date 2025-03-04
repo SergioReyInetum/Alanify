@@ -37,7 +37,7 @@ body {
 
 .input-container {
     display: inline-flex;
-    width: 50%;
+    width: 70%;
     position: relative;
 
     input[type="text"] {
@@ -79,11 +79,11 @@ body {
 
 
 .separator {
-  margin: 10px auto; /* Espacio alrededor del separador */
-  width: 80%; /* Ancho del separador */
-  height: 10px; /* Grosor del separador */
-  background-color: #ccc; /* Color del separador */
-  border-radius: 1px; /* Bordes ligeramente redondeados */
+  width: 90%; // Mismo ancho que .content para alineación
+  height: 4px; // Grosor del separador
+  background-color: #ccc; // Color gris claro para un estilo sutil
+  margin: 10px auto; // Centra el separador y añade espacio arriba/abajo
+  border-radius: 1px; // Bordes ligeramente redondeados para un toque moderno
 }
 
 .nav {
@@ -170,13 +170,24 @@ body {
 .content {
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
+    width: 90%; 
+    margin: 0 auto; 
     gap: 20px; /* Espaciado entre las dos secciones */
+    max-height: 85vh; /* Altura máxima del contenido */
+    
+    
   
     .computer-image {
       flex: 1;
       margin-right: 20px; // Espacio entre la imagen y la lista
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // Ajusta la imagen al contenedor
+      }
+      
+      
     }
 
     .arrow {
@@ -203,19 +214,23 @@ body {
   
   
     .component-list {
-      flex: 2;
-      padding: 20px;
+      flex: 1.6;
+      padding: 8px;
       background: #f9f9f9;
-      border-radius: 10px;
+      border-radius: 4px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       gap: 20px; // Espacio entre las secciones
+      justify-content: space-between;
+
+      
   
       .component-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0; // Reduce el espacio entre el título y la lista
   
         .component-title {
           display: flex;
@@ -226,6 +241,11 @@ body {
             height: 24px;
             margin-right: 10px;
           }
+          h2 {
+            font-size: 20px; // Reduce el tamaño de la fuente del título
+            margin: 0; // Elimina márgenes innecesarios
+            color: #333;
+        }
         }
   
         .component-icons {
@@ -238,8 +258,8 @@ body {
               align-items: center;
 
               .icon {
-                  width: 24px; /* Tamaño del ícono */
-                  height: 24px;
+                  width: 22px; /* Tamaño del ícono */
+                  height: 22px;
                   transition: transform 0.2s, opacity 0.2s;
 
                   &:hover {
@@ -286,27 +306,29 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: -8px; // Reduce el margen superior
       
         .total-price {
           display: inline-block; // Asegura que el fondo solo abarque el texto
           background-color: #ffa500; // Cambia el color de fondo a naranja
           color: #ffffff; // Color del texto (negro)
-          font-size: 1.2rem; // Incrementa el tamaño de la letra
+          font-size: 1.1rem; // Incrementa el tamaño de la letra
           font-weight: bold; // Hace la letra en negrita
-          padding: 0.5rem 1rem; // Añade espacio alrededor del texto para hacerlo más visible
-          border-radius: 5px; // Redondea los bordes
+          padding: 6px 10px; // Añade espacio alrededor del texto para hacerlo más visible
+          border-radius: 3px; // Redondea los bordes
           text-align: center; // Asegura que el texto esté centrado
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); // Opcional, añade un pequeño sombreado
         }
   
         .continue-button {
-          padding: 10px 20px;
+          display: inline-block;
+          padding: 6px 10px;
           background-color: #007BFF;
           color: #fff;
           border: none;
-          border-radius: 5px;
+          border-radius: 3px;
           cursor: pointer;
-          font-size: 1.2rem; // Incrementa el tamaño de la letra
+          font-size: 1.1rem; // Incrementa el tamaño de la letra
           font-weight: bold; // Hace la letra en negrita
         }
       }
@@ -358,3 +380,5 @@ body {
         }
     }
 }
+
+
