@@ -326,8 +326,14 @@ fs.readFile('./data.json', 'utf8', (err, jsonString) => {
           Fabricante_Placa_Base = "Null";
         }
 
+        Socket_Placa_Base = PB.caracteristicas[1] + " | " + PB.caracteristicas[2] + " | " + PB.caracteristicas[3];
+
+        Precio_Placa_Base = PB.precio;
+
         console.log(Nombre_Placa_Base);
         console.log(Fabricante_Placa_Base);
+        console.log(Socket_Placa_Base);
+        console.log(Precio_Placa_Base);
         console.log();
       });      
     } else {
