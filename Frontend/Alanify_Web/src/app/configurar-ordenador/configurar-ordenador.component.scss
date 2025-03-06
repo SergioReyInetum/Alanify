@@ -108,6 +108,11 @@ body {
     .logo {
         width: 60px; // Aumenta un poco el tamaño del logo (de 50px a 60px)
         height: auto;
+        transition: transform 0.3s ease; /* Animación suave para el logo */
+
+        &:hover {
+          transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+        }  
     }
 }
 
@@ -117,25 +122,15 @@ body {
     margin: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    gap: 4px;
 
     li {
       display: inline-block;
-      margin: 0 5px; // Espacio pequeño entre las pestañas
+      margin: 0; // Espacio pequeño entre las pestañas
     }
-    .nav-left {
-      margin-left: 0; // Pega la pestaña izquierda al borde
-  }
-
-  .nav-center {
-    flex: 0 0 auto; // Quita el flex-grow para evitar que se expanda
-    margin: 0 auto; // Centra horizontalmente "Configurar ordenador"
-  }
-
-  .nav-right {
-      margin-right: 0; // Pega la pestaña derecha al borde
-  }
+  
   }
 
   button {
@@ -334,6 +329,9 @@ body {
       }
     }
   }
+  
+
+  
 @media screen and (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -360,6 +358,7 @@ body {
           flex-direction: column; // Apila las pestañas verticalmente
           align-items: center; // Centra las pestañas verticalmente
           width: 100%;
+          gap: 4px; /* Ajustado para pantallas pequeñas */
 
           li {
               margin: 5px 0; // Espacio vertical entre las pestañas

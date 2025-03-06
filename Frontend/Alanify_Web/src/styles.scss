@@ -18,3 +18,427 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400; /* Regular */
   }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/images/fondoWeb_alanify.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+    overflow-x: hidden; /* Evita desplazamiento lateral no deseado */
+    
+}
+
+.header {
+    background-color:transparent; /* Hacemos el header transparente para que se vea el fondo */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    position: relative; /* Para que los elementos dentro se posicionen respecto a él */
+    
+
+    input[type="text"] {
+        width: 50%;
+        padding: 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.input-container {
+    display: inline-flex;
+    width: 70%;
+    position: relative;
+
+    input[type="text"] {
+        flex-grow: 1;
+        padding: 10px 40px 10px 10px;
+    }
+
+    .borrar_icono {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.enviar_icono {
+    margin-left: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+
+.nav {
+  position: fixed; /* Fija la navegación en la pantalla */
+  top: 10px; /* Desplázala hacia abajo desde la parte superior */
+  left: 50%; /* Centra la navegación horizontalmente */
+  transform: translateX(-50%); /* Asegura que esté perfectamente centrada */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  padding: 15px;
+  border-radius: 15px; /* Bordes redondeados para el efecto de "isla" */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para elevar la "isla" */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  width: 80%;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+
+  .logo-container {
+    margin-left: 5px; // Pega el logo más a la izquierda
+    margin-right: 20px; // Espacio entre el logo y las pestañas
+
+    .logo {
+        width: 60px; // Aumenta un poco el tamaño del logo (de 50px a 60px)
+        height: auto;
+    }
+}
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4px;
+
+    li {
+      display: inline-block;
+      margin: 0; // Espacio pequeño entre las pestañas
+    }
+
+  }
+
+  button {
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Para indicar que es clickeable */
+    padding: 10px 15px; /* Aumenta un poco el espacio alrededor del ícono */
+    display: flex;
+    flex-direction: row; /* Alinea el ícono y el texto en una fila */
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+
+    &:hover {
+      color: #007bff; /* Color cuando el mouse pasa sobre el botón */
+    }
+
+    &.active {
+      color: #007bff; /* Color cuando el botón está activo */
+      text-decoration: underline; /* Subrayado para el botón activo */
+    }
+
+    img {
+      width: 25px; /* Tamaño de los íconos más pequeño */
+      height: 25px;
+      margin-right: 10px; /* Espaciado entre el ícono y el texto */
+    }
+  }
+}
+
+.separator {
+  width: 90%; // Mismo ancho que .content para alineación
+  height: 4px; // Grosor del separador
+  background-color: #ccc; // Color gris claro para un estilo sutil
+  margin: 120px auto; // Centra el separador y añade espacio arriba/abajo
+  border-radius: 1px; // Bordes ligeramente redondeados para un toque moderno
+  
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%; 
+    margin: 0 auto; 
+    gap: 20px; /* Espaciado entre las dos secciones */
+    max-height: 85vh; /* Altura máxima del contenido */
+    
+    
+  
+    .computer-image {
+      flex: 1;
+      margin-right: 20px; // Espacio entre la imagen y la lista
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // Ajusta la imagen al contenedor
+      }
+      
+      
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .left-arrow {
+      left: 10px; /* Coloca la flecha a la izquierda */
+    }
+  
+    .right-arrow {
+      right: 10px; /* Coloca la flecha a la derecha */
+    }
+  
+    .arrow img {
+      width: 40px;
+      height: 40px;
+    }
+  
+  
+    .component-list {
+      flex: 1.6;
+      padding: 8px;
+      background: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px; // Espacio entre las secciones
+      justify-content: space-between;
+
+      
+  
+      .component-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0; // Reduce el espacio entre el título y la lista
+  
+        .component-title {
+          display: flex;
+          align-items: center;
+  
+          .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+          }
+          h2 {
+            font-size: 20px; // Reduce el tamaño de la fuente del título
+            margin: 0; // Elimina márgenes innecesarios
+            color: #333;
+        }
+        }
+  
+        .component-icons {
+          .share-button {
+              background: none; /* Sin fondo */
+              border: none; /* Sin borde */
+              cursor: pointer; /* Cursor clickeable */
+              padding: 0; /* Quitar espacio predeterminado */
+              display: flex; /* Centrar el contenido */
+              align-items: center;
+
+              .icon {
+                  width: 22px; /* Tamaño del ícono */
+                  height: 22px;
+                  transition: transform 0.2s, opacity 0.2s;
+
+                  &:hover {
+                      transform: scale(1.1); /* Efecto zoom */
+                      opacity: 0.8; /* Reduce la opacidad */
+                  }
+              }
+          }
+      }
+  }
+  
+      .components-section {
+        .component-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #ddd;
+  
+          .component {
+            flex: 1;
+          }
+  
+          .edit-price button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+          }
+  
+          .edit-price {
+            flex: 0 0 30px;
+            text-align: right;
+  
+            .icon {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+  
+      .total-price-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: -8px; // Reduce el margen superior
+      
+        .total-price {
+          display: inline-block; // Asegura que el fondo solo abarque el texto
+          background-color: #ffa500; // Cambia el color de fondo a naranja
+          color: #ffffff; // Color del texto (negro)
+          font-size: 1.1rem; // Incrementa el tamaño de la letra
+          font-weight: bold; // Hace la letra en negrita
+          padding: 6px 10px; // Añade espacio alrededor del texto para hacerlo más visible
+          border-radius: 3px; // Redondea los bordes
+          text-align: center; // Asegura que el texto esté centrado
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); // Opcional, añade un pequeño sombreado
+        }
+  
+        .continue-button {
+          display: inline-block;
+          padding: 6px 10px;
+          background-color: #007BFF;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          font-size: 1.1rem; // Incrementa el tamaño de la letra
+          font-weight: bold; // Hace la letra en negrita
+        }
+      }
+    }
+    // seccion informacion y contacto de pestaña informacion
+    .info-section {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: -90px;
+    
+      .about-us,
+      .contact-info {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+        h2 {
+          font-size: 24px;
+          color: #333;
+          margin-bottom: 15px;
+        }
+    
+        p {
+          font-size: 16px;
+          color: #555;
+          line-height: 1.6;
+        }
+    
+        .contact-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+    
+          .icon {
+            width: 40px;
+            margin-right: 20px;
+          }
+    
+          p {
+            font-size: 16px;
+            color: #555;
+          }
+        }
+      }
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .header input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .nav {
+      width: 90%; // Aumenta el ancho en pantallas pequeñas
+      flex-direction: column; // Apila los elementos en pantallas pequeñas
+      padding: 5px;
+
+      .logo-container {
+          margin: 5px 0; // Reduce los márgenes en pantallas pequeñas
+          .logo {
+              width: 50px; // Reduce el tamaño del logo en pantallas pequeñas
+          }
+      }
+
+      ul {
+          flex-direction: column; // Apila las pestañas verticalmente
+          align-items: center; // Centra las pestañas verticalmente
+          width: 100%;
+          gap: 4px; /* Ajustado para pantallas pequeñas */
+
+          li {
+              margin: 5px 0; // Espacio vertical entre las pestañas
+          }
+
+          .nav-left, .nav-center, .nav-right {
+              margin: 0; // Elimina márgenes en pantallas pequeñas
+              text-align: center; // Centra el texto
+          }
+      }
+  }
+  .separator {
+    margin-top: 60px; /* Ajusta para pantallas pequeñas si es necesario */
+  }
+    .content {
+        flex-direction: column;
+        padding-top: 5px;
+
+        .computer-image, .component-list {
+            width: 100%;
+        }
+    }
+}
+
+

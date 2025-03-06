@@ -10,15 +10,15 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   
   templateUrl: './configurar-ordenador.component.html',
   styleUrl: './configurar-ordenador.component.scss',
-  animations: [
+  /*animations: [
     trigger('slideAnimation', [
-      state('void', style({ transform: 'translateX(100%)' })),
+      
       state('left', style({ transform: 'translateX(-100%)' })),
       state('right', style({ transform: 'translateX(0)' })),
-      transition('* => right', animate('500ms ease-in-out')),
-      transition('* => left', animate('500ms ease-in-out')),
+      transition('* => right', animate('700ms ease-in-out')),
+      transition('* => left', animate('700ms ease-in-out')),
     ])
-  ]
+  ]*/
 })
 export class ConfigurarOrdenadorComponent {
   // Tres opciones de ordenadores simuladas (puedes reemplazarlas con datos de la IA más tarde)
@@ -72,8 +72,27 @@ export class ConfigurarOrdenadorComponent {
 
   currentOptionIndex: number = 1; // Inicia con la segunda opción (índice 1, ya que el array es 0-based)
 
-  @HostBinding('@slideAnimation') get slideState() {
-    return this.currentOptionIndex === 1 ? 'right' : this.currentOptionIndex === 0 ? 'left' : 'right';
+  /*@HostBinding('@slideAnimation') get slideState() {
+    console.log('Estado de animación:', this.currentOptionIndex === 0 ? 'left' : 'right');
+    return this.currentOptionIndex === 0 ? 'left' : 'right';
+  }
+
+  @HostBinding('@listSlideAnimation') get listSlideState() {
+    return this.currentOptionIndex === 0 ? 'left' : 'right';
+  }*/
+
+  // Propiedad para obtener el color de la caja actual
+  get listColor(): string {
+    switch (this.currentOptionIndex) {
+      case 0:
+        return '#808080'; //  para la primera opción (caja1)
+      case 1:
+        return '#000000'; //  para la segunda opción (caja2)
+      case 2:
+        return '#333333'; //  para la tercera opción (caja3)
+      default:
+        return '#333'; // Color por defecto (gris oscuro)
+    }
   }
 
    // Inyectamos el Router en el constructor
@@ -112,10 +131,7 @@ export class ConfigurarOrdenadorComponent {
     // Propiedad para controlar la visibilidad del menú de redes sociales
     showMenu: boolean = false;
 
-    // Función para alternar la visibilidad del menú de redes sociales
-    toggleMenu(): void {
-      // esta funcion ya no es necesaria, se puede eliminar
-    }
+   
 
   compartirEn(plataforma: string): void {
     const url = window.location.href; // URL actual de la página
@@ -153,8 +169,7 @@ export class ConfigurarOrdenadorComponent {
       window.open(shareUrl, '_blank');
     }
   
-    // Ocultar el menú  de redes sociales después de compartir
-    this.showMenu = false;
+    
   }
   // Nueva función para abrir el modal de compartir
   openShareModal(): void {

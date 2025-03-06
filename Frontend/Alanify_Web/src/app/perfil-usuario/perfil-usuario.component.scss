@@ -1,0 +1,265 @@
+/* src/app/perfil-usuario/perfil-usuario.component.scss */
+
+:host {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Estilos para el nav (replicando el patrón global) */
+  .nav {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  
+    .logo-container {
+      margin-left: 5px;
+      margin-right: 20px;
+  
+      .logo {
+        width: 60px;
+        height: auto;
+      }
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 4px; /* Ajustado para pantallas pequeñas */
+  
+      li {
+        display: inline-block;
+        margin: 0;
+  
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px 15px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          text-align: center;
+          color: #333;
+          font-size: 18px;
+  
+          &:hover {
+            color: #007bff;
+          }
+  
+          &.active {
+            color: #007bff;
+            text-decoration: underline;
+          }
+  
+          img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Estilos para el separador (replicando el patrón global) */
+  .separator {
+    width: 90%;
+    height: 4px;
+    background-color: #ccc;
+    margin: 120px auto 10px auto;
+    border-radius: 1px;
+    z-index: 1000;
+  }
+  
+  /* Estilos para el contenido del perfil */
+  .content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    gap: 20px;
+    max-height: 85vh;
+    margin-top: 0;
+    padding-top: 10px;
+  
+    .profile-section {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+  
+      .user-data {
+        flex: 1;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        min-height: 460px; /* Reducido de 450px a 350px para un agrandamiento más moderado */
+  
+        h2 {
+          font-size: 24px;
+          color: #333;
+          margin: 0 0 20px 0; /* Aseguramos que el título esté dentro del recuadro */
+          font-family: 'Roboto', sans-serif;
+          font-weight: 700;
+        }
+  
+        .data-item {
+          margin-bottom: 15px;
+  
+          label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+          }
+  
+          p {
+            font-size: 16px;
+            color: #555;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+          }
+        }
+      }
+  
+      .history-cart {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+  
+        .history-content,
+        .cart-content {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          flex: 1; /* Para que ambas secciones ocupen el mismo espacio */
+          min-height: 180px; /* Reducido de 200px a 150px para un agrandamiento más moderado */
+        }
+  
+        .history-content {
+          h2 {
+            font-size: 24px;
+            color: #333;
+            margin: 0 0 15px 0; /* Aseguramos que el título esté dentro del recuadro */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+          }
+  
+          p {
+            font-size: 16px;
+            color: #555;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+          }
+        }
+  
+        .cart-content {
+          h3 {
+            font-size: 20px;
+            color: #333;
+            margin: 0 0 15px 0; /* Aseguramos que el título esté dentro del recuadro */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+  
+            &::before {
+              /*content: url('assets/images/cart_icon.png'); /* Reemplaza con la ruta de tu ícono de carrito */
+              width: 24px;
+              height: 24px;
+            }
+          }
+  
+          p {
+            font-size: 16px;
+            color: #555;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Media Queries para responsividad */
+  @media screen and (max-width: 768px) {
+    .nav {
+      width: 90%;
+      flex-direction: column;
+      padding: 5px;
+  
+      .logo-container {
+        margin: 5px 0;
+  
+        .logo {
+          width: 50px;
+        }
+      }
+  
+      ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 4px; /* Ajustado para pantallas pequeñas */
+  
+        li {
+          margin: 5px 0;
+  
+          button {
+            text-align: center;
+          }
+        }
+      }
+    }
+  
+    .separator {
+      margin-top: 60px;
+    }
+  
+    .content {
+      flex-direction: column;
+      padding-top: 5px;
+  
+      .profile-section {
+        width: 100%;
+        flex-direction: column;
+  
+        .user-data,
+        .history-cart {
+          width: 100%;
+        }
+  
+        .history-cart {
+          .history-content,
+          .cart-content {
+            min-height: 120px; /* Ajustado para pantallas pequeñas */
+          }
+        }
+      }
+    }
+  }

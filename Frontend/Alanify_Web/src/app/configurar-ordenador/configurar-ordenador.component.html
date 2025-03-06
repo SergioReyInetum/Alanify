@@ -12,19 +12,19 @@
             <img src="assets/images/logo_alanify_definitivo83.png" alt="AlaniFy Logo" class="logo">
         </div>
         <ul>
-            <li class="nav-left">
+            <li >
                 <button [class.active]="activeTab === 'informacion'" (click)="navigate('informacion')">
                     <img src="assets/images/informacion_icono.png" alt="Información Icono">
                     Información
                 </button>
             </li>
-            <li class="nav-center">
+            <li >
                 <button [class.active]="activeTab === 'configurar'" (click)="navigate('configurar')">
                     <img src="assets/images/pc_icono.png" alt="Configurar Icono">
                     Configurar ordenador
                 </button>
             </li>
-            <li class="nav-right">
+            <li >
                 <button [class.active]="activeTab === 'perfil'" (click)="navigate('perfil')">
                     <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
                     Perfil Usuario
@@ -44,7 +44,7 @@
     
     <div class="separator"></div> <!-- Añadimos el separador aquí -->
 
-    <div class="content"@slideAnimation>
+    <div class="content">
           <!-- Flecha izquierda para ir a la imagen del PC -->
         <button class="arrow left-arrow" (click)="moverIzquierda()">
             <img src="assets/images/flecha-izquierda.png" alt="Flecha izquierda">
@@ -75,15 +75,15 @@
             </div>
             
         <!-- Lista de componentes -->
-        <div class="components-section"@listSlideAnimation>
+        <div class="components-section"  [ngStyle]="{'color': listColor}">
             <div *ngFor="let component of currentOption.components" class="component-row">
-            <div class="component">{{ component.name }}</div>
-            <div class="price">{{ component.price }} €</div>
-            <div class="edit-price">
-                <button (click)="editComponent(component.id)">
-                <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon" />
-                </button>
-            </div>
+                <div class="component">{{ component.name }}</div>
+                <div class="price">{{ component.price }} €</div>
+                <div class="edit-price">
+                    <button (click)="editComponent(component.id)">
+                        <img src="assets/images/editar_icono.png" alt="Editar Icono" class="icon" />
+                    </button>
+                </div>
             </div>
         </div>
         
