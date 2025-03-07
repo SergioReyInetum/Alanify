@@ -1,1 +1,20 @@
-<p>soporte works!</p>
+<div class="reset-form">
+    <h2>Soporte de Alanify</h2>
+    <p class="subtext">He olvidado el nombre o contraseña de mi cuenta</p>
+    <form>
+      <div class="form-group">
+        <label for="email">Introduce tu dirección de correo electrónico</label>
+        <input type="email" id="email" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="new-password">Nueva contraseña</label>
+        <input type="password" id="new-password" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirma nueva contraseña</label>
+        <input type="password" id="confirm-password" placeholder="" required>
+      </div>
+      <button type="submit" class="btn-primary">Restaurar contraseña</button>
+    </form>
+    <button class="btn-back" (click)="navigateToIniciarSesion()">⬅</button>
+  </div>

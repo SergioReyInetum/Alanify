@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card'; // Módulo para tarjetas
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';  // Añadir este import para usar formularios en Angular
+import { AuthModule } from './auth/auth.module'; // Importar el módulo de autenticación
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';  // Añadir este import para usar 
     MatToolbarModule, // Importa módulos de Angular Material aquí
     MatButtonModule,
     MatCardModule,
-    FormsModule  
+    FormsModule,
+    AuthModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

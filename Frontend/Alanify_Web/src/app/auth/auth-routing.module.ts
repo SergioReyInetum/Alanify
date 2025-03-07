@@ -4,12 +4,20 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { TokenValidacionComponent } from './token-validacion/token-validacion.component';
 import { SoporteComponent } from './soporte/soporte.component';
+import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
-  { path: 'iniciar-sesion', component: IniciarSesionComponent },
-  { path: 'crear-cuenta', component: CrearCuentaComponent },
-  { path: 'token-validacion', component: TokenValidacionComponent },
-  { path: 'soporte', component: SoporteComponent },
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+      { path: '', redirectTo: 'iniciar-sesion', pathMatch: 'full' },
+      { path: 'iniciar-sesion', component: IniciarSesionComponent },
+      { path: 'crear-cuenta', component: CrearCuentaComponent },
+      { path: 'token-validacion', component: TokenValidacionComponent },
+      { path: 'soporte', component: SoporteComponent }
+    ]
+  }
 ];
 
 @NgModule({

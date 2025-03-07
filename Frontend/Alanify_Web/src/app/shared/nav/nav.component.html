@@ -1,0 +1,25 @@
+<div class="nav" role="navigation">
+    <div class="logo-container">
+        <img src="assets/images/logo_alanify_definitivo83.png" alt="AlaniFy Logo" class="logo">
+    </div>
+    <ul>
+        <li >
+            <button [class.active]="activeTab === 'informacion'" (click)="navigate('informacion')">
+                <img src="assets/images/informacion_icono.png" alt="Información Icono">
+                Información
+            </button>
+        </li>
+        <li >
+            <button [class.active]="activeTab === 'configurar'" (click)="navigate('configurar')">
+                <img src="assets/images/pc_icono.png" alt="Configurar Icono">
+                Configurar ordenador
+            </button>
+        </li>
+        <li >
+            <button [class.active]="activeTab === 'perfil'" (click)="navigate('perfil')">
+                <img src="assets/images/perfil_icono.png" alt="Usuario Icono">
+                Perfil Usuario
+            </button>
+        </li>
+    </ul>
+</div>

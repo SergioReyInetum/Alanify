@@ -1,1 +1,10 @@
-<p>token-validacion works!</p>
+<div class="validate-form">
+    <h2>Token de validación</h2>
+    <form (ngSubmit)="onValidate()">
+      <div class="form-group">
+        <label for="token">Introducir código de validación</label>
+        <input type="text" id="token" placeholder="4567FGT" required [(ngModel)]="token" name="token">
+      </div>
+      <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+  </div>

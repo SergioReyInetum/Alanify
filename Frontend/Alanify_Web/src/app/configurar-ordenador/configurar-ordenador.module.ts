@@ -5,6 +5,7 @@ import { ConfigurarOrdenadorRoutingModule } from './configurar-ordenador-routing
 import { ConfigurarOrdenadorComponent } from './configurar-ordenador.component';
 import { FormsModule } from '@angular/forms';  // Mantiene FormsModule para ngModel
 import { MatDialogModule } from '@angular/material/dialog'; // Mantiene MatDialogModule
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog'; // Mantiene MatDialo
     CommonModule, // Reemplaza BrowserModule y BrowserAnimationsModule con CommonModule
     ConfigurarOrdenadorRoutingModule,
     FormsModule,
-    MatDialogModule // Mantiene el módulo de Angular Material para el diálogo
+    MatDialogModule, // Mantiene el módulo de Angular Material para el diálogo
+    SharedModule
   ]
 })
 export class ConfigurarOrdenadorModule { }

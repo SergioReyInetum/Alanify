@@ -1,0 +1,76 @@
+.nav {
+    position: fixed; /* Fija la navegación en la pantalla */
+    top: 10px; /* Desplázala hacia abajo desde la parte superior */
+    left: 50%; /* Centra la navegación horizontalmente */
+    transform: translateX(-50%); /* Asegura que esté perfectamente centrada */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 15px;
+    border-radius: 15px; /* Bordes redondeados para el efecto de "isla" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para elevar la "isla" */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    width: 80%;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+  
+    .logo-container {
+      margin-left: 5px; // Pega el logo más a la izquierda
+      margin-right: 20px; // Espacio entre el logo y las pestañas
+  
+      .logo {
+          width: 60px; // Aumenta un poco el tamaño del logo (de 50px a 60px)
+          height: auto;
+          transition: transform 0.3s ease; /* Animación suave para el logo */
+  
+          &:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+          }  
+      }
+  }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 4px;
+  
+      li {
+        display: inline-block;
+        margin: 0; // Espacio pequeño entre las pestañas
+      }
+    
+    }
+  
+    button {
+      background: none; /* Sin fondo para los botones */
+      border: none; /* Sin borde */
+      cursor: pointer; /* Para indicar que es clickeable */
+      padding: 10px 15px; /* Aumenta un poco el espacio alrededor del ícono */
+      display: flex;
+      flex-direction: row; /* Alinea el ícono y el texto en una fila */
+      align-items: center;
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+  
+      &:hover {
+        color: #007bff; /* Color cuando el mouse pasa sobre el botón */
+      }
+  
+      &.active {
+        color: #007bff; /* Color cuando el botón está activo */
+        text-decoration: underline; /* Subrayado para el botón activo */
+      }
+  
+      img {
+        width: 25px; /* Tamaño de los íconos más pequeño */
+        height: 25px;
+        margin-right: 10px; /* Espaciado entre el ícono y el texto */
+      }
+    }
+  }
+  

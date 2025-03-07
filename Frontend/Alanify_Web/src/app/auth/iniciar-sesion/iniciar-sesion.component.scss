@@ -1,0 +1,190 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-size: cover;
+    position: relative; /* Para posicionar el botón "Atrás" */
+  }
+
+  .login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Aumentado a 600px */
+    margin: 0 auto; /* Centra el formulario */
+    text-align: center;
+  
+    h2 {
+      color: #6a1b9a;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  
+    .subtext {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+  
+        label {
+          display: block;
+          font-size: 14px;
+          color: #333;
+          margin-bottom: 5px;
+        }
+  
+        input {
+          width: 80%; /* Contenido interno ocupa el 80% y se centra */
+          margin: 0 auto; /* Centra el input */
+          display: block;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+          background: #e0e0e0;
+        }
+  
+        .forgot-password {
+          display: block;
+          text-align: right;
+          font-size: 12px;
+          color: #6a1b9a;
+          text-decoration: none;
+          margin-top: 5px;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+  
+        &.checkbox-group {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-bottom: 20px;
+  
+          .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+  
+            .checkbox-input {
+              margin: 0;
+              margin-right: 8px;
+              width: 16px;
+              height: 16px;
+            }
+  
+            .checkbox-text {
+              font-size: 14px;
+              color: #333;
+            }
+          }
+        }
+      }
+  
+      .btn-primary {
+        width: 80%; /* Botón ocupa el 80% y se centra */
+        margin: 0 auto; /* Centra el botón */
+        display: block;
+        padding: 10px;
+        background: linear-gradient(90deg, #6a1b9a, #ab47bc);
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+  
+        &:hover {
+          background: linear-gradient(90deg, #ab47bc, #6a1b9a);
+        }
+      }
+    }
+  
+    .social-login {
+      margin-top: 20px;
+  
+      .btn-social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%; /* Botones sociales ocupan el 80% y se centran */
+        margin: 0 auto; /* Centra los botones */
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+  
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+  
+        &.google {
+          background: #fff;
+          color: #333;
+        }
+  
+        &.facebook {
+          background: #3b5998;
+          color: #fff;
+        }
+      }
+    }
+  
+    .register-link {
+      margin-top: 20px;
+      font-size: 14px;
+  
+      a {
+        color: #6a1b9a;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+
+  
+/* Posicionar el logo personalizado en Iniciar Sesión */
+.custom-logo-container {
+    position: absolute;
+    bottom: 30px;
+    left: -500px;
+  }
+  
+  .logo {
+    width: 180px; /* Ajusta según el tamaño deseado */
+    height: auto;
+  }
+  
+  .btn-back {
+    position: absolute;
+    bottom: 40px;
+    right: -150px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #6a1b9a;
+    cursor: pointer;
+  
+    &:hover {
+      color: #ab47bc;
+    }
+  }
